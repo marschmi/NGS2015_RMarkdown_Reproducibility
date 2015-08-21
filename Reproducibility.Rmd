@@ -1,0 +1,71 @@
+---
+title: "Reproducible Research Using RMarkdown"
+author: "Marian L. Schmidt"
+date: "August 21, 2015"
+output:
+  html_document:
+    theme: united
+    toc: yes
+---
+
+# Reproducible Research 
+
+
+
+# Robust Research
+
+# Recommendations for Robust Research
+### Pay attention to Experimental Design 
+
+### Write code for humans, write data for computers
+
+### Let your computer do the work for you
+
+### Make assertions and be loud, in code and in your methods
+
+### Use existing libraries (packages) whenever possible
+
+### Treat data as read-only
+
+### Spend time developing frequently used scripts into tools
+
+### Let data prove that it's high quality
+
+# Recommendations for reproducible research 
+
+### Release your code and data
+
+### Document everything, including software versions and command line arguments exactly
+
+Include “session info” in your document, preferably at the bottom. Session info lists the version of R that you’re using plus all of the packages you’ve loaded. There’s a sessionInfo() that’s included with base R (in the utils package), but [Dr. Karl Broman](http://kbroman.org/knitr_knutshell/pages/reproducible.html) recommends using the `session_info()` from the devtools package as it provides more detailed information in a nicer layout.
+
+### Make figures and statistics the results of scripts 
+
+### Use code as documentation
+
+### Write code that uses relative paths.
+
+Do not rely on hard-coded absolute paths (i.e. /Users/marschmi/Data/seq-data.csv or even ~/Data/seq-data.csv). Relative paths (i.e. Data/seq-data.csv) or command line arguments are better alternatives.
+
+### Encapsulate the full project into one directory
+
+### Set your seed  
+
+If there is any randomizations of data or simulations, use `set.seed()` in the first code chunk.
+
+
+Dr. Karl Browman suggests to open R and type runif(1, 0, 10^8) and then paste the resulting large number into set.seed() in the first code chunk. If you do this, then the random aspects of your analysis should be repeated the same way exactly whenever it is “knit.”
+
+
+
+
+
+
+## Resources 
+
+
+
+### Session Info
+```{r session_info, include=TRUE, echo=TRUE, results='markup'}
+devtools::session_info()
+```
