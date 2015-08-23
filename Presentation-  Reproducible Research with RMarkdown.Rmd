@@ -5,6 +5,22 @@ date: "August 23, 2015"
 output: ioslides_presentation  
 ---
 
+## The Agenda  
+1. What is **robust and reproducible research**?  
+2. How can you make **your research** more **robust and reproducible**?  
+3. You can use RMarkdown!  Wait, what's RMarkdown?
+4. How to use RMarkdown and why it will change your workflow - `it is awesome.`  
+5. Using **git** through RStudio.  It's so easy!  
+6. Initialize your first reproducible github repo within RStudio!
+
+## Learning Goals  
+1. Walk away knowing what **robust and reproducible research** are.  
+2. To know the changes you can make to your research to make it more **robust and reproducible.**  
+3. To understand what RMarkdown *is.*
+4. To know how to create an RMarkdown document and understand it's uses for code sharing. 
+5. To understand how to use **git** through the RStudio interface.
+6. Know how to initialize a reproducible github repo within RStudio!
+
 ## Who is Marian Schmidt?  
 - I'm a native Michigander who likes to code in R.
 - PhD Candidate in the Department of Ecology and Evolutionary Biology at the University of Michigan in [Vincent Denef's Lab](http://www-personal.umich.edu/~vdenef/).  
