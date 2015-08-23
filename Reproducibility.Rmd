@@ -17,11 +17,11 @@ output:
 # Recommendations for Robust Research
 ### Pay attention to Experimental Design 
 
-### Write code for humans, write data for computers
+#### Write code for humans, write data for computers
 
-### Let your computer do the work for you
+#### Let your computer do the work for you
 
-### Make assertions and be loud, in code and in your methods
+#### Make assertions and be loud, in code and in your methods
 
 ### Use existing libraries (packages) whenever possible
 
@@ -61,7 +61,12 @@ Dr. Karl Browman suggests to open R and type runif(1, 0, 10^8) and then paste th
 
 
 
-## Resources 
+# Resources 
+- Vince Buffalo's [Bioinformatics Data Skills](http://www.amazon.com/Bioinformatics-Data-Skills-Reproducible-Research/dp/1449367372) book and it's helpful [github page](https://github.com/vsbuffalo/bds-files)
+- A course by Dr. Karl Browman at the University of Wisconsin-Madison on [Reproducible Research.](http://kbroman.org/Tools4RR/)  
+- [Schloss lab reproducible research github repo](https://github.com/SchlossLab/new_project)  
+- ROpenSci [Reproducibility Research](http://ropensci.github.io/reproducibility-guide/) guidelines  
+- [Best Practices for Scientific Computing](http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745) by Wilson et al., 2014
 
 
 
