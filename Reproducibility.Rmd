@@ -8,11 +8,28 @@ output:
     toc: yes
 ---
 
-# Reproducible Research 
+# As scientists, it should be our goal to perform **robust** and **reproducible** research.
 
+- **Robust research** is void of *silent errors* (unknown) software bugs and messy data.  
+    + **Silent errors**: Code and programs may produce output, rather than stop with an error, but this output may be incorrect.  
+- **Reproducible research** may be repeated by other researchers with the same results. 
 
+####What are the ingredients to robust and reproducible research?  
 
-# Robust Research
+- **Work must be well documented!  Methods, code, and data must be made available to others!**  
+- Adopt a cautious attitude and *check everything*.    
+    + Vince Buffalo's golden rule of bioinformatics:  "Never ever trust your tools (or data)"  
+    + Remember, "garbage in, garbage out" - an analysis is only as good as the data going in.
+
+However, the size of our data and the complexity of our analysis workflows make it difficult to be truly reproducible.  
+
+1. Genomics data is too large and high dimensional to easily inspect or visualize.  Usually, workflows involve multiple steps and it's not feasible to inspect every step.  
+2. Unlike in the wet lab, we don't always know what to expect of our genomics data analysis.  
+3. It's difficult to distinguish *good* from *bad* results.
+
+What's the benefit for *you*?  
+
+Yeah, it takes a lot of effort to be robust and reproducible.  However, *it will make your life (and science) easier!*
 
 # Recommendations for Robust Research
 ### Pay attention to Experimental Design 
@@ -70,7 +87,7 @@ Dr. Karl Browman suggests to open R and type runif(1, 0, 10^8) and then paste th
 
 
 
-### Session Info
+# Session Info
 ```{r session_info, include=TRUE, echo=TRUE, results='markup'}
 devtools::session_info()
 ```
