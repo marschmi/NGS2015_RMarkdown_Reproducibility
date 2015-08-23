@@ -8,11 +8,19 @@ output:
     toc: yes
 ---
 
-# As scientists, it should be our goal to perform **robust** and **reproducible** research.
+## As scientists, it should be our goal to perform **robust** and **reproducible** research.
 
-- **Robust research** is void of *silent errors* (unknown) software bugs and messy data.  
-    + **Silent errors**: Code and programs may produce output, rather than stop with an error, but this output may be incorrect.  
+- "**Robust research** is about doing small things that stack the deck in your favor to prevent mistakes." *~Vince Buffalo*
 - **Reproducible research** may be repeated by other researchers with the same results. 
+
+However, the size of our genomics data and the complexity of our analysis workflows make it difficult to be truly reproducible.  
+
+1. Genomics data is too large and high dimensional to easily inspect or visualize.  Usually, workflows involve multiple steps and it's not feasible to inspect every step.  
+2. Unlike in the wet lab, we don't always know what to expect of our genomics data analysis.  
+3. It's difficult to distinguish *good* from *bad* results.  
+4. Scientific code is usually only run once to generate results for a publication, and is therefore more likely to contain (silent) bugs.  
+    + **Silent errors** are code and programs that may produce unknowingly incorrect output (rather than stop with an errorn message).
+
 
 ####What are the ingredients to robust and reproducible research?  
 
@@ -21,55 +29,97 @@ output:
     + Vince Buffalo's golden rule of bioinformatics:  "Never ever trust your tools (or data)"  
     + Remember, "garbage in, garbage out" - an analysis is only as good as the data going in.
 
-However, the size of our data and the complexity of our analysis workflows make it difficult to be truly reproducible.  
 
-1. Genomics data is too large and high dimensional to easily inspect or visualize.  Usually, workflows involve multiple steps and it's not feasible to inspect every step.  
-2. Unlike in the wet lab, we don't always know what to expect of our genomics data analysis.  
-3. It's difficult to distinguish *good* from *bad* results.
 
-What's the benefit for *you*?  
+####What's the benefit for **_you?_**  
+Yeah, it takes a lot of effort to be robust and reproducible.  However, *it will make your life (and science) easier!*  
 
-Yeah, it takes a lot of effort to be robust and reproducible.  However, *it will make your life (and science) easier!*
+- Most likely, you will have to re-run your analysis more than once.  
+- In the future, you or a collaborator may have to re-visit part of the project.  
+- You can make modularized parts of the project into re-useable tools for the future.  
+    + Let me re-phrase: **Take the time to develop fequently used scripts into tools.**  
+        + Then have your lab mates or collaborators test them and try to break them.
 
-# Recommendations for Robust Research
-### Pay attention to Experimental Design 
 
-#### Write code for humans, write data for computers
+## 5 Recommendations for Robust Research
+#### 1. Write code for humans, write data for computers
 
-#### Let your computer do the work for you
+**Code readability is very important.**  Code should be readable and broken down into small chunks that may be re-used.  (Do not re-write code to do the same task over and over again.)  
 
-#### Make assertions and be loud, in code and in your methods
++ Comment code  
++ Adopt a [style guide](https://github.com/google/styleguide) 
+    
+If your code is more readable, then:  
 
-### Use existing libraries (packages) whenever possible
+- Your project is more reproducible.  
+- It's easier to find and correct bugs.  
+- You will be your friend in the future when you revisit the code.
 
-### Treat data as read-only
 
-### Spend time developing frequently used scripts into tools
+**Let your computer do the work for you**  
+Format your data so its easily read by your computer, not by you or other humans.  
 
-### Let data prove that it's high quality
+- Code written for people to read requires cleaning and tidying to be processed by a computer.  
+- Name data files in a consistent way.  
+    + Automating tasks will be easier, which will prevent you from making trivial mistakes.
 
-# Recommendations for reproducible research 
+#### 2. Make assertions and be loud, in code and in your methods
 
-### Release your code and data
+#### 3. Use existing libraries (packages) whenever possible  
+Do not try to re-invent the wheel while your performing your data anaylsis.  Use functions that have already been written and tested for you - so you take some of the work-load off of your shoulders!
 
-### Document everything, including software versions and command line arguments exactly
+#### 4. Prevent catastrophe and help reproducibility by making your data **read-only**
+Read-only is important because:  
 
-Include “session info” in your document, preferably at the bottom. Session info lists the version of R that you’re using plus all of the packages you’ve loaded. There’s a sessionInfo() that’s included with base R (in the utils package), but [Dr. Karl Broman](http://kbroman.org/knitr_knutshell/pages/reproducible.html) recommends using the `session_info()` from the devtools package as it provides more detailed information in a nicer layout.
+- Modifying data can corrupt your results.  Therefore, making it less reproducible.  
+- It's easy to lose track of how you have changed a file when you modify it in place.  
 
-### Make figures and statistics the results of scripts 
+#### 5. Let data prove that it's high quality
 
-### Use code as documentation
 
-### Write code that uses relative paths.
+
+
+
+
+
+
+## 6 Recommendations for reproducible research 
+
+#### 1. Encapsulate the full project into one directory that is supported with version control.
+
+#### 2. Release your code and data
+It is simple.  Without your code and data, your research is not reproducible.
+
+#### 3. Document everything and use code as documentation! **Bottom line:  Adopt a computing notebook that is as good as a wet-lab notebook**.
+
+To fully reproduce a study, each step of analysis must be described in much more detail than can be included in a publication.  Therefore, additional documentation is essetial for reproducibility.
+
+Include a record of your steps, where files are, where the came from, and what they contain.  Include “session info” in your document, preferably at the bottom. Session info lists the version of R that you’re using plus all of the packages you’ve loaded. There’s a sessionInfo() that’s included with base R (in the utils package), but [Dr. Karl Broman](http://kbroman.org/knitr_knutshell/pages/reproducible.html) recommends using the `session_info()` from the devtools package as it provides more detailed information in a nicer layout.
+
+The [Schloss lab reproducible research github repo](https://github.com/SchlossLab/new_project) is a great place to start a reproducible research project.  
+
+In your computing notebook:  
+
+- Document your methods and workflows  
+- Document the origin of all data in your project directory  
+- Document **when** and **how** you downloaded the data  
+- Record **data** version info  
+- Record **software** version info (see below)
+
+All the above information could be stored in a *README* file.
+
+
+#### 4. Make figures, tables, and statistics the results of scripts.
+
+Using `inline code` can make the creation of tables much easier if the data changes!
+
+#### 5. Write code that uses relative paths.
 
 Do not rely on hard-coded absolute paths (i.e. /Users/marschmi/Data/seq-data.csv or even ~/Data/seq-data.csv). Relative paths (i.e. Data/seq-data.csv) or command line arguments are better alternatives.
 
-### Encapsulate the full project into one directory
-
-### Set your seed  
+#### 6. Always Set your seed  
 
 If there is any randomizations of data or simulations, use `set.seed()` in the first code chunk.
-
 
 Dr. Karl Browman suggests to open R and type runif(1, 0, 10^8) and then paste the resulting large number into set.seed() in the first code chunk. If you do this, then the random aspects of your analysis should be repeated the same way exactly whenever it is “knit.”
 
