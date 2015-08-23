@@ -106,7 +106,7 @@ In your computing notebook:
 - Record **data** version info  
 - Record **software** version info (see below)
 
-All the above information could be stored in a *README* file.
+All the above information could be stored in a *README* file 
 
 
 #### 4. Make figures, tables, and statistics the results of scripts.
@@ -128,13 +128,17 @@ Dr. Karl Browman suggests to open R and type runif(1, 0, 10^8) and then paste th
 
 
 
-# Resources 
+# Resources
+#### On Reproducible Research  
 - Vince Buffalo's [Bioinformatics Data Skills](http://www.amazon.com/Bioinformatics-Data-Skills-Reproducible-Research/dp/1449367372) book and it's helpful [github page](https://github.com/vsbuffalo/bds-files)
 - A course by Dr. Karl Browman at the University of Wisconsin-Madison on [Reproducible Research.](http://kbroman.org/Tools4RR/)  
 - [Schloss lab reproducible research github repo](https://github.com/SchlossLab/new_project)  
 - ROpenSci [Reproducibility Research](http://ropensci.github.io/reproducibility-guide/) guidelines  
 - [Best Practices for Scientific Computing](http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745) by Wilson et al., 2014
 
+#### On Rmarkdown, RStudio and R  
+- Yihui Xie's "[Dynamic Documents with R and Knitr](http://www.amazon.com/Dynamic-Documents-knitr-Chapman-Series/dp/1482203537)" and it's [github page](https://github.com/yihui/knitr-book/).  
+- Christopher Gandrud's "[Reproducible Research with R and RStudio](http://www.amazon.com/Reproducible-Research-Studio-Chapman-Series/dp/1466572841)" and it's github page
 
 
 # Session Info
