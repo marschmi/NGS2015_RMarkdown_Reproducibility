@@ -1,9 +1,23 @@
 ---
 title: 'Reproducible Research with RMarkdown'
-author: "Marian L. Schmidt"
+author: "Marian L. Schmidt (marschmi@umich.edu; @micro_marian)"
 date: "August 23, 2015"
-output: ioslides_presentation
+output: ioslides_presentation  
 ---
+
+## Who is Marian Schmidt?  
+- I'm a native Michigander who likes to code in R.
+- PhD Candidate in the Department of Ecology and Evolutionary Biology at the University of Michigan in [Vincent Denef's Lab](http://www-personal.umich.edu/~vdenef/).  
+- My dissertation is focused on the spatial and temporal distributions and activities of freshwater bacteria.  
+- I get to work in this beautiful place...
+![](Figures/LakeMichigan.tif)
+
+##  
+When I'm not doing science-y things, you can find me here:  
+![](Figures/climbing2.jpg) 
+
+## Time to get to business  
+![](Figures/Fig.1_alpha_SIGS_small.tif)
 
 ## As scientists, it should be our goal to perform **robust** and **reproducible** research.
 
@@ -99,7 +113,7 @@ Read-only is important because:
 
 
 ## 1. Encapsulate the full project into one directory that is supported with version control.  
-The [Schloss lab reproducible research github repo](https://github.com/SchlossLab/new_project) is a great place to start a reproducible research project.  
+The [Reproducible-Science-Curriculum Github repo for Reproducible Research Project Initialization](https://github.com/Reproducible-Science-Curriculum/rr-init) is a great place to start a reproducible research project.  
 
 ## 2. Release your code and data
 It is simple.  Without your code and data, your research is not reproducible.
@@ -139,13 +153,11 @@ Dr. Karl Browman suggests to open R and type runif(1, 0, 10^8) and then paste th
 
 
 
-## Installing Rmarkdown and knitr
-`install.packages("knitr")`
-`install.packages("rmarkdown")`
+
 
 ## What is R Markdown?   
-* Markdown file with embedded R code chunks.  
-      + **Markdown:**  text-to-HTML conversion tool for web writers.   
+* RMarkdown is a variant of Markdown that has embedded R code chunks to be used with `knitr` to make it easy to create reproducible web-based reports.  
+      + **Markdown:**  A system for writing simple, readable text that is easily converted to html. 
           + Allows you to write using an easy-to-read, easy-to-write plain text format.              
 *  Rmd -> md -> html (docx, pdf)  
 *  Can include both text and code to execute  
@@ -166,6 +178,12 @@ A convenient tool for reproducible and dynamic reports with R!
 ## Simple Workflow
 
 ![](Figures/rmd_workflow.jpeg)
+
+
+## Installing Rmarkdown and knitr
+`install.packages("knitr")`
+`install.packages("rmarkdown")` 
+
 
 ## How to Open an Rmd File
 ![](Figures/new.jpeg)
