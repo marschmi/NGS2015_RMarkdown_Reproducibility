@@ -189,7 +189,11 @@ If there is any randomizations of data or simulations, use `set.seed()` in the f
 6. Always Set your seed.  
 
 
+## How can you revise your work flow?  
+Chat with your neighbor about your workflow.  
 
+- Where you can introduce **robust** steps?  
+- Where can you add **reproducible** steps?
 
 
 ## Do you have RStudio, R, and github all configured?

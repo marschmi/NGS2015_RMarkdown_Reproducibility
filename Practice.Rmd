@@ -1,0 +1,21 @@
+---
+title: "Making A Reproducible RMarkdown File"
+author: "Marian L. Schmidt"
+date: "August 23, 2015"
+output: html_document
+---
+
+Today, I learned about reproducibility.  The first thing I should do, is set my seed.
+
+```{r Set Seed, eval=TRUE, echo=TRUE}
+#runif(1, 0, 1^8)
+set.seed(seed = 43855096)
+```
+
+You can also embed plots, for example:
+
+```{r, echo=FALSE}
+plot(cars)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
