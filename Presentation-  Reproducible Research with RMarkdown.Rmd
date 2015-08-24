@@ -5,11 +5,11 @@ date: "August 23, 2015"
 output: ioslides_presentation  
 ---
 
-## The Agenda  
+## The Agenda 
 1. What is **robust and reproducible research**?  
 2. How can you make **your research** more **robust and reproducible**?  
 3. You can use RMarkdown!  Wait, what's RMarkdown?
-4. How to use RMarkdown and why it will change your workflow - `it is awesome.`  
+4. How to use RMarkdown and why it will change your workflow - it's awesome.  
 5. Using **git** through RStudio.  It's so easy!  
 6. Initialize your first reproducible github repo within RStudio!
 
@@ -24,8 +24,7 @@ output: ioslides_presentation
 ## Who is Marian Schmidt?  
 - I'm a native Michigander who likes to code in R.
 - PhD Candidate in the Department of Ecology and Evolutionary Biology at the University of Michigan in [Vincent Denef's Lab](http://www-personal.umich.edu/~vdenef/).  
-- My dissertation is focused on the spatial and temporal distributions and activities of freshwater bacteria.  
-- I get to work in this beautiful place...
+- My dissertation is focused on the spatial and temporal distributions and activities of freshwater bacteria. I get to work in this beautiful place...
 ![](Figures/LakeMichigan.tif)
 
 ##  
