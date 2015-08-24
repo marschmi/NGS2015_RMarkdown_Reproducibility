@@ -23,9 +23,9 @@ output: ioslides_presentation
 
 ## Who is Marian Schmidt?  
 - I'm a native Michigander who likes to code in R.
-- PhD Candidate in the Department of Ecology and Evolutionary Biology at the University of Michigan in [Vincent Denef's Lab](http://www-personal.umich.edu/~vdenef/).  
+- PhD Candidate in EEB at the UMich in [Vincent Denef's Lab](http://www-personal.umich.edu/~vdenef/).  
 - My dissertation is focused on the spatial and temporal distributions and activities of freshwater bacteria. I get to work in this beautiful place...
-![](Figures/LakeMichigan.tif)
+![](Figures/LakeMichigan.jpeg)
 
 ##  
 When I'm not doing science-y things, you can find me here:  
@@ -361,7 +361,8 @@ When you render, R will:
 2. [Initialize repo on the github page](http://angus.readthedocs.org/en/2015/CTB-github.html).  
     + Name the Repo "NGS_Reproducibility"  
 3. Open up RStudio  
-4. File -> New Project -> Version Control 
+4. File -> New Project -> Version Control -> Git -> Copy and Paste the SSH clone URL.  
+    + Be sure to use the same repo name as on your github page!
 
 
 
