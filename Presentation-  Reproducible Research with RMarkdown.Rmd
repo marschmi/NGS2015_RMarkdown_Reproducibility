@@ -32,7 +32,7 @@ When I'm not doing science-y things, you can find me here:
 ![](Figures/climbing2.jpg) 
 
 ## How to replicate my Figure 1?
-![](Figures/Fig.1_alpha_SIGS_bigger2.jpeg)
+![](Figures/Fig.1_alpha_SIGS.jpeg)
 
 ## To replicate my figure 1, we need...  
 - Sequencing data!
