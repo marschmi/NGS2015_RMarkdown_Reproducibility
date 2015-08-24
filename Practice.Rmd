@@ -12,10 +12,15 @@ Today, I learned about reproducibility.  The first thing I should do, is set my 
 set.seed(seed = 43855096)
 ```
 
-You can also embed plots, for example:
-
-```{r, echo=FALSE}
-plot(cars)
+```{r install packages, eval=TRUE, echo=FALSE}
+#install.packages("devtools")
+library("devtools")
+#install.packages("ggplot2")
+library("ggplot2")
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+Always remember to included session info for reproducibility!
+
+```{r session_info, include=TRUE, echo=TRUE, results='markup'}
+devtools::session_info()
+```
