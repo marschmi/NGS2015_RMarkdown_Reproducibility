@@ -12,7 +12,7 @@ Today, I learned about reproducibility.  The first thing I should do, is set my 
 set.seed(seed = 43855096)
 ```
 
-```{r install packages, eval=TRUE, echo=FALSE}
+```{r install packages, eval=TRUE, echo=TRUE}
 #install.packages("devtools")
 library("devtools")
 #install.packages("ggplot2")
