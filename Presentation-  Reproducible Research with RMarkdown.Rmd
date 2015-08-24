@@ -31,8 +31,19 @@ output: ioslides_presentation
 When I'm not doing science-y things, you can find me here:  
 ![](Figures/climbing2.jpg) 
 
-## Time to get to business  
-![](Figures/Fig.1_alpha_SIGS_small.tif)
+## How to replicate my Figure 1?
+![](Figures/Fig.1_alpha_SIGS_bigger2.pdf)
+
+## To replicate my figure 1, we need...  
+- Sequencing data!
+- Metadata (i.e. where in the water column it was sampled, particle-association, which lake, nutrient profile, mixing status)  
+- The code!  
+    + Very well commented and documented.  
+          + Using set.seed! 
+    + How did I calculate observed richness?  
+    + WTF is "Simpson's Evenness"?  
+- The versions of the software and packages/libraries used
+
 
 ## As scientists, it should be our goal to perform **robust** and **reproducible** research.
 
@@ -67,11 +78,6 @@ Yeah, it takes a lot of effort to be robust and reproducible.  However, *it will
 
 
 ## 5 Recommendations for Robust Research  
-1. Write code for humans, write data for computers  
-2. Make assertions and be loud, in code and in your methods  
-3. Use existing libraries (packages) whenever possible  
-4. Prevent catastrophe and help reproducibility by making your data **read-only**  
-5. Let data prove that it's high quality
 
 
 ## 1a. Write code for humans
@@ -98,10 +104,14 @@ Format your data so its easily read by your computer, not by you or other humans
 
 ## 2. Make assertions and be loud, in code and in your methods  
 Add tests within your code to make sure your code is doing what it is supposed to do.  
-For example, use the `testthat` package
+
+- In R you can use `stopifnot()`  
+    + The `testthat` package is made for this!  Check it out the [testthat package here](http://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf)  
+- In python you can use `assert()`
 
 ## 3. Use existing libraries (packages) whenever possible  
-Do not try to re-invent the wheel while your performing your data anaylsis.  Use functions that have already been written and tested for you - so you take some of the work-load off of your shoulders!
+- Do not try to re-invent the wheel while your performing your data anaylsis.  
+- Use functions that have already been written and tested for you.
 
 ## 4. Prevent catastrophe and help reproducibility by making your data **read-only**
 Read-only is important because:  
@@ -111,11 +121,63 @@ Read-only is important because:
 
 ## 5. Let data prove that it's high quality
 
+## 5 Recommendations for Robust Research  
+1. Write code for humans, write data for computers  
+2. Make assertions and be loud, in code and in your methods  
+3. Use existing libraries (packages) whenever possible  
+4. Prevent catastrophe and help reproducibility by making your data **read-only**  
+5. Let data prove that it's high quality
 
 
 
 
 
+
+
+## 6 Recommendations for reproducible research  
+
+
+## 1. Encapsulate the full project into one directory that is supported with version control.  
+The **Reproducible-Science-Curriculum** [Github repo for Reproducible Research Project Initialization](https://github.com/Reproducible-Science-Curriculum/rr-init) is a great place to start a reproducible research project.  
+
+## 2. Release your code and data
+It is simple.  Without your code and data, your research is not reproducible.
+
+## 3. Document everything!   
+**Bottom line:  Adopt a computing notebook that is as good as a wet-lab notebook**.
+
+To fully reproduce a study, each step of analysis must be described in much more detail than can be included in a publication.
+
+Include a record of your steps, where files are, where they came from, and what they contain.  
+
+Include `session_info()` in your document, preferably at the bottom. Session info lists the version of R that you’re using plus all of the packages you’ve loaded. 
+
+## In your computing notebook:  
+
+- Document your methods and workflows  
+- Document the origin of all data in your project directory  
+- Document **when** and **how** you downloaded the data  
+- Record **data** version info   
+- Record **software** version info with `session_info()`
+
+For example, all the above information could be stored in a *README* file 
+
+
+## 4. Make figures, tables, and statistics the results of scripts.
+
+Using `inline code` can make the creation of tables much easier if the data changes!
+
+## 5. Write code that uses relative paths.
+
+- Do not rely on hard-coded absolute paths (i.e. /Users/marschmi/Data/seq-data.csv or even ~/Data/seq-data.csv).  
+
+- Relative paths (i.e. Data/seq-data.csv) or command line arguments are better alternatives.
+
+## 6. Always Set your seed  
+
+If there is any randomizations of data or simulations, use `set.seed()` in the first code chunk.
+
+[Karl Browman](http://kbroman.org/knitr_knutshell/pages/reproducible.html) suggests to open R and type runif(1, 0, 10^8) and then paste the resulting large number into `set.seed()` in the first code chunk. If you do this, then the random aspects of your analysis should be repeated the same way.
 
 
 ## 6 Recommendations for reproducible research  
@@ -127,57 +189,29 @@ Read-only is important because:
 6. Always Set your seed.  
 
 
-## 1. Encapsulate the full project into one directory that is supported with version control.  
-The [Reproducible-Science-Curriculum Github repo for Reproducible Research Project Initialization](https://github.com/Reproducible-Science-Curriculum/rr-init) is a great place to start a reproducible research project.  
-
-## 2. Release your code and data
-It is simple.  Without your code and data, your research is not reproducible.
-
-## 3. Document everything!   
-**Bottom line:  Adopt a computing notebook that is as good as a wet-lab notebook**.
-
-To fully reproduce a study, each step of analysis must be described in much more detail than can be included in a publication.  Therefore, additional documentation is essetial for reproducibility.
-
-Include a record of your steps, where files are, where the came from, and what they contain.  Include “session info” in your document, preferably at the bottom. Session info lists the version of R that you’re using plus all of the packages you’ve loaded. There’s a sessionInfo() that’s included with base R (in the utils package), but [Dr. Karl Broman](http://kbroman.org/knitr_knutshell/pages/reproducible.html) recommends using the `session_info()` from the devtools package as it provides more detailed information in a nicer layout.
-
-In your computing notebook:  
-
-- Document your methods and workflows  
-- Document the origin of all data in your project directory  
-- Document **when** and **how** you downloaded the data  
-- Record **data** version info  
-- Record **software** version info (see below)
-
-All the above information could be stored in a *README* file 
-
-
-## 4. Make figures, tables, and statistics the results of scripts.
-
-Using `inline code` can make the creation of tables much easier if the data changes!
-
-## 5. Write code that uses relative paths.
-
-Do not rely on hard-coded absolute paths (i.e. /Users/marschmi/Data/seq-data.csv or even ~/Data/seq-data.csv). Relative paths (i.e. Data/seq-data.csv) or command line arguments are better alternatives.
-
-## 6. Always Set your seed  
-
-If there is any randomizations of data or simulations, use `set.seed()` in the first code chunk.
-
-Dr. Karl Browman suggests to open R and type runif(1, 0, 10^8) and then paste the resulting large number into set.seed() in the first code chunk. If you do this, then the random aspects of your analysis should be repeated the same way exactly whenever it is “knit.”
 
 
 
+## Do you have RStudio, R, and github all configured?
+Yes?  Then, please install **Rmarkdown** and **knitr** 
+
+`install.packages("knitr")`
+`install.packages("rmarkdown")` 
+
+No?  Take the time to do it now, please.  
 
 
 
+## RMarkdown Time!
+    
+    
 ## What is R Markdown?   
 * RMarkdown is a variant of Markdown that has embedded R code chunks to be used with `knitr` to make it easy to create reproducible web-based reports.  
       + **Markdown:**  A system for writing simple, readable text that is easily converted to html. 
           + Allows you to write using an easy-to-read, easy-to-write plain text format.              
 *  Rmd -> md -> html (docx, pdf)  
 *  Can include both text and code to execute  
-  
-    
+      
     
 ## Why R Markdown?
 A convenient tool for reproducible and dynamic reports with R!       
@@ -195,13 +229,13 @@ A convenient tool for reproducible and dynamic reports with R!
 ![](Figures/rmd_workflow.jpeg)
 
 
-## Installing Rmarkdown and knitr
-`install.packages("knitr")`
-`install.packages("rmarkdown")` 
+
 
 
 ## How to Open an Rmd File
-![](Figures/new.jpeg)
+![](Figures/new.jpeg)  
+
+## How to Open an Rmd File
 ![](Figures/newRMD.jpeg)
 
 
@@ -286,7 +320,12 @@ You may want to use the same set of chunk options throughout a document and you 
 
 **Global chunk options are for you!**
 
-![](global.jpeg)
+```{r global_options, include = FALSE}
+knitr::opts_chunk$set(fig.width = 12, fig.height = 8, 
+                      echo = FALSE, warning = FALSE, message = FALSE)
+```
+
+![](Figures/global.jpeg)
 
 
 
@@ -296,10 +335,13 @@ You may want to use the same set of chunk options throughout a document and you 
 Last night, I saw `r 5 + 2` shooting stars!  
 
 
+![](Figures/shootingstars.jpeg)
+
+
 
 ## Rendering document
 1.  Run `rmarkdown::render("<filepath>")`  
-2.  Click the **knit HTML** button at the top of the RStudio scripts pane  
+2.  Click the very cute **knit HTML** button at the top of the RStudio scripts pane  
 
 When you render, R will:  
 
@@ -312,10 +354,40 @@ When you render, R will:
 -  Save the output file in your working directory.  
 
 
+## Using Git trough RStudio  
+
+## Git through RStudio  
+1.  Sign into [GitHub](https://github.com/).  
+2. [Initialize repo on the github page](http://angus.readthedocs.org/en/2015/CTB-github.html).  
+    + Name the Repo "NGS_Reproducibility"  
+3. Open up RStudio  
+4. File -> New Project -> Version Control 
 
 
 
 
+## Resources for Reproducible Research  
+- Vince Buffalo's [Bioinformatics Data Skills](http://www.amazon.com/Bioinformatics-Data-Skills-Reproducible-Research/dp/1449367372) book and it's helpful [github page](https://github.com/vsbuffalo/bds-files)  
+    + Main source for this presentation.
+- A course by Dr. Karl Browman at the University of Wisconsin-Madison on [Reproducible Research.](http://kbroman.org/Tools4RR/)  
+- [Schloss lab reproducible research github repo](https://github.com/SchlossLab/new_project)  
+- ROpenSci [Reproducibility Research](http://ropensci.github.io/reproducibility-guide/) guidelines  
+- [Best Practices for Scientific Computing](http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745) by Wilson et al., 2014
+
+## Rmarkdown, RStudio and R Resources  
+- Yihui Xie's "[Dynamic Documents with R and Knitr](http://www.amazon.com/Dynamic-Documents-knitr-Chapman-Series/dp/1482203537)" and it's [github page](https://github.com/yihui/knitr-book/).  
+- Christopher Gandrud's "[Reproducible Research with R and RStudio](http://www.amazon.com/Reproducible-Research-Studio-Chapman-Series/dp/1466572841)" and it's github page
+- [RStudio RMarkdown Documentation](http://rmarkdown.rstudio.com/)  
+- [Rmd Cheatsheet](http://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
+- [Knitr Reference Card](http://cran.r-project.org/web/packages/knitr/vignettes/knitr-refcard.pdf)
+
+
+
+## Session Info  
+[Dr. Karl Broman](http://kbroman.org/knitr_knutshell/pages/reproducible.html) recommends using the `session_info()` from the devtools package.
+```{r session_info, include=TRUE, echo=TRUE, results='markup'}
+devtools::session_info()
+```
 
 
 
