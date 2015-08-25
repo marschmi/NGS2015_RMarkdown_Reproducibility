@@ -442,31 +442,132 @@ When you render, R will:
 2. Git add by checking box under "staged".  
 3. Create our commit message.  
     + It should be a meaningful message!  
-    + Think you in 6 months looking for changes you had made.  
+    + Think of you in 6 months looking for changes you had made.  Don't you want to be your own friend?  
 4. Click "Commit."  
 5. Git Push by clicking the "Push" button.  
 6. Make sure everything is pushed to the remote repository without any errors.  
 
 Click on the clock button to view your git history.  Here, you can also view the difference between documents.  
 
-#### Within the Github Project we created earlier, let's make a file named "Practice.Rmd" with html output
+
+## [Multivariate statistics with R By Ryan Williams](https://github.com/ngs-docs/angus/blob/2015/week3/visualizations/multivariate-tests/tests.md) - Data from [Adina Howe's Lab](http://germslab.org/)   
+Here, we are looking at transcript abundance within 12 different individual flys of three types of flies.  
+
+### Within the Github Project we created earlier, let's make a file named "Practice.Rmd" with html output
+
+### Let's make sure to set our seed first!
+
+Let's create a random uniform distribution between `0` and `1e+08` and then copy and paste that into the `set.seed()` function.
 
 ```{r Set Seed, eval=FALSE, echo=TRUE}
-#runif(1, 0, 1^8)`
+#```{r Set Seed, eval=FALSE, echo=TRUE}
+#runif(1, 0, 10^8)
 set.seed(seed = 43855096)
+#```
 ```
 
+
+###  Install/Load Packages that we will use
 ```{r install packages, eval=FALSE, echo=TRUE}
+#```{r install packages, eval=FALSE, echo=TRUE}
 #install.packages("devtools")
 library("devtools")
 #install.packages("ggplot2")
 library("ggplot2")
+#install.packages("RCurl")
+library("RCurl")
+#install.packages("ggplot2")
+library("ggplot2")
+#install.packages("vegan")
+library("vegan")
+#```
 ```
+
+```{r install packages2, eval=TRUE, echo=FALSE}
+#```{r install packages2, eval=TRUE, echo=FALSE}
+#install.packages("devtools")
+library("devtools")
+#install.packages("ggplot2")
+library("ggplot2")
+#install.packages("RCurl")
+library("RCurl")
+#install.packages("ggplot2")
+library("ggplot2")
+#install.packages("vegan")
+library("vegan")
+```
+
+
+### Time to load in the data! 
+```{r adonis, eval=FALSE, echo = TRUE}
+#```{r adonis, eval=TRUE, echo = TRUE}
+URL<-("https://raw.githubusercontent.com/ryanjw/ngs-3rdweek/master/visualizations/datasets/fly_data.txt")
+
+dataset<-read.table(textConnection(getURL(URL)),header=T,check.names=F,sep="\t")
+#```
+```
+
+```{r adonis2, eval=TRUE, echo = FALSE}
+#```{r adonis, eval=TRUE, echo = TRUE}
+URL<-("https://raw.githubusercontent.com/ryanjw/ngs-3rdweek/master/visualizations/datasets/fly_data.txt")
+
+dataset<-read.table(textConnection(getURL(URL)),header=T,check.names=F,sep="\t")
+#```
+```
+
+Let's look at the dataset that we loaded in
+
+```{r dataset info, eval=TRUE, echo = TRUE, fig.width = 7, fig.height = 5, fig.align='center'}
+#```{r dataset info, eval=TRUE, echo = TRUE, fig.width = 4, fig.height = 4, fig.align='center'}
+dim(dataset) # Number of Rows, Number of columns 
+
+head(dataset[,1:10]) # Look at the first 10 columns 
+
+ggplot(dataset)+geom_histogram(aes(x=FBgn0000022,fill=fly,alpha=0.5)) + ggtitle("FBgn0000022 Transcript")# Plot a histogram of the distribution of the number of transcripts for the "FBgn0000022" transcript.
+#```
+```
+
+### Standardize the data and then ask:  "Are the expression profiles different?"
+```{r standardized adonis, echo=TRUE, eval = TRUE}
+#```{r standardized adonis, echo=TRUE, eval = TRUE}
+adonis(decostand(dataset[,-c(1:3)],method="total")~dataset$fly*dataset$type)
+#```
+```
+
+### Are different transcripts present or absent between flys and types?
+```{r presence/absence adonis, echo=TRUE, eval = TRUE}
+#```{r presence/absence adonis, echo=TRUE, eval = TRUE}
+adonis(decostand(dataset[,-c(1:3)],method="pa")~dataset$fly*dataset$type,method="jaccard")
+#```
+```
+
+
+
+###  [Data Visualizations from Ryan Williams](https://github.com/ngs-docs/angus/blob/2015/week3/visualizations/multivariate-viz/visualizations.md) 
+```{r visualizations, eval=TRUE, echo = TRUE, fig.width = 7, fig.height = 5, fig.align='center'}
+#```{r visualizations, eval=TRUE, echo = TRUE, fig.width = 7, fig.height = 5, fig.align='center'}
+URL<-("https://raw.githubusercontent.com/ryanjw/ngs-3rdweek/master/visualizations/multivariate-viz/fly_data_with_unknowns.txt")
+fly_unknowns<-read.table(textConnection(getURL(URL)),header=T,check.names=F,sep="\t")
+
+head(fly_unknowns[,1:10])
+tail(fly_unknowns[,1:10])
+
+ mds<-metaMDS(fly_unknowns[,-c(1:4)],distance="bray",autotransform=F,k=3 )
+ sc<-data.frame(scores(mds),fly_unknowns[,1:3])
+ head(sc)
+
+ ggplot(sc, aes(x=NMDS1,y=NMDS2, color = type))+geom_point()
+```
+
+
+
+
 
 Always remember to included session info for reproducibility!
 
 ```{r session_info, eval = FALSE, include=TRUE, echo=TRUE, results='markup'}
-devtools::session_info()
+#```{r session_info, eval = FALSE, include=TRUE, echo=TRUE, results='markup'}
+ devtools::session_info()
 ```
 
 
@@ -482,12 +583,13 @@ devtools::session_info()
 - [Best Practices for Scientific Computing](http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745) by Wilson et al., 2014  
 - [Stats Dept. Resources from U-Wisconsin](https://www.stat.wisc.edu/reproducible)
 
-## Rmarkdown, RStudio and R Resources  
+## Resources for Rmarkdown, RStudio and R  
 - Yihui Xie's "[Dynamic Documents with R and Knitr](http://www.amazon.com/Dynamic-Documents-knitr-Chapman-Series/dp/1482203537)" and it's [github page](https://github.com/yihui/knitr-book/).  
 - [RMarkdown Quick Reference Guide](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf) - Christopher Gandrud's "[Reproducible Research with R and RStudio](http://www.amazon.com/Reproducible-Research-Studio-Chapman-Series/dp/1466572841)" and it's github page
 - [RStudio RMarkdown Documentation](http://rmarkdown.rstudio.com/)  
 - [Rmd Cheatsheet](http://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
-- [Knitr Reference Card](http://cran.r-project.org/web/packages/knitr/vignettes/knitr-refcard.pdf)
+- [Knitr Reference Card](http://cran.r-project.org/web/packages/knitr/vignettes/knitr-refcard.pdf)  
+- [R Cookbook for ggplot](http://www.cookbook-r.com/Graphs/)
 
 
 
