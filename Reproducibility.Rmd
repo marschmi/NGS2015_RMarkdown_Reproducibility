@@ -1,7 +1,7 @@
 ---
 title: "Reproducible Research Using RMarkdown"
 author: "Marian L. Schmidt"
-date: "August 21, 2015"
+date: "August 25, 2015"
 output:
   html_document:
     theme: united
@@ -12,9 +12,9 @@ output:
 1. What is **robust and reproducible research**?  
 2. How can you make **your research** more **robust and reproducible**?  
 3. You can use RMarkdown!  Wait, what's RMarkdown?
-4. How to use RMarkdown and why it will change your workflow - it's awesome.  
-5. Using **git** through RStudio.  It's so easy!  
-6. Initialize your first reproducible github repo within RStudio!
+4. How to use RMarkdown and why it may change your workflow.
+5. Using **git** through RStudio.   
+6. Initialize your a more reproducible github repo within RStudio!
 
 ## Learning Goals  
 1. Walk away knowing what **robust and reproducible research** are.  
@@ -22,29 +22,59 @@ output:
 3. To understand what RMarkdown *is.*
 4. To know how to create an RMarkdown document and understand it's uses for code sharing. 
 5. To understand how to use **git** through the RStudio interface.
-6. Know how to initialize a reproducible github repo within RStudio!
+6. Know how to initialize a more reproducible github repo within RStudio!
+
+## Key Resources Used to Build this lesson
+- Vince Buffalo's [Bioinformatics Data Skills](http://www.amazon.com/Bioinformatics-Data-Skills-Reproducible-Research/dp/1449367372) book and it's helpful [github page](https://github.com/vsbuffalo/bds-files)  
+    + Main source for this presentation.
+- A course by Dr. Karl Browman at the University of Wisconsin-Madison on [Reproducible Research.](http://kbroman.org/Tools4RR/)  
+- [Best Practices for Scientific Computing](http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745) by Wilson et al., 2014  
+
+
+***
 
 ## Who is Marian Schmidt?  
 - I'm a native Michigander who likes to code in R.
-- PhD Candidate in EEB at the UMich in [Vincent Denef's Lab](http://www-personal.umich.edu/~vdenef/).  
-- My dissertation is focused on the spatial and temporal distributions and activities of freshwater bacteria. I get to work in this beautiful place...  
+- PhD Candidate in the Department of Ecology and Evolutionary Biology at the University of Michigan in [Vincent Denef's Lab](http://www-personal.umich.edu/~vdenef/).  
+- My dissertation is focused on the spatial and temporal distributions and activities of freshwater bacteria.  
+    + Specifically, I work on the diversity of particle-associated (3-20 um) and free-living (0.22-3 um) bacteria within both small inland lakes and in Lake Michigan.  
+    + So far I have been using 16S rRNA amplicon data at the DNA-level to study bacterial community composition.  
+    + In the future, I hope to look at functional differences between the particle-associated and free-living bacterial fractions by using metatranscriptomics.
+- I get to work in this beautiful place...  
 ![](Figures/LakeMichigan.jpeg)  
 - When I'm not doing science-y things, you can find me here:  
 ![](Figures/climbing2.jpg) 
 
-## How to replicate my Figure 1?
-![](Figures/Fig.1_alpha_SIGS_bigger2.pdf)
+***
 
-#### To replicate my figure 1, we need...  
+## We scientists have a few problems  
+- The [LaCour Scandal](http://fivethirtyeight.com/datalab/as-a-major-retraction-shows-were-all-vulnerable-to-faked-data/) of fabricated data published in *Science*.  
+- Scientists in the United States spend [$28 billion](http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002165) each year on basic biomedical research that cannot be repeated successfully  
+- A reproducibility study in psychology found that only [39 of 100 studies could be reproduced](http://www.nature.com/news/first-results-from-psychology-s-largest-reproducibility-test-1.17433).  
+    + A quote: *“A lot of working scientists assume that if it’s published, it’s right... This makes it hard to dismiss that there are still a lot of false positives in the literature.”*
+- The Journal *Nature* on the [issue of reproducibility](http://www.nature.com/news/reproducibility-1.17552#/)  
+    + A comment from the journal *Nature*: "Nature and the Nature research journals will introduce editorial measures to address the problem by improving the consistency and quality of reporting in life-sciences articles... **we will give more space to methods sections. We will examine statistics more closely and encourage authors to be transparent, for example by including their raw data.**"  
+    + Nature also released a ["checklist"](http://www.nature.com/authors/policies/checklist.pdf) with an albeit *wimpy* computational check *(see #18)*.  
+        + This talk will hopefully help all of us improve this step.
+
+***
+
+## How to replicate this Figure 1?
+![](Figures/try.png)
+
+#### To replicate this figure 1, we need...  
 - Sequencing data!
-- Metadata (i.e. where in the water column it was sampled, particle-association, which lake, nutrient profile, mixing status)  
-- The code!  
+- All other data (i.e. where in the water column it was sampled, particle-association, which lake, nutrient profile, mixing status)  
+- The code!  Which should be:  
+    + Easily read-able  
     + Very well commented and documented.  
           + Using set.seed! 
-    + How did I calculate observed richness?  
-    + What's is "Simpson's Evenness"?  
+    + How to calculate:  
+        + Observed richness?  
+        + Simpson's Evenness?  
 - The versions of the software and packages/libraries used
 
+***
 
 ## As scientists, it should be our goal to perform **robust** and **reproducible** research.
 
@@ -64,7 +94,13 @@ output:
 - **Work must be well documented!  Methods, code, and data must be made available to others!**  
 - Adopt a cautious attitude and *check everything*.    
     + Vince Buffalo's golden rule of bioinformatics:  "Never ever trust your tools (or data)"  
-    + Remember, "garbage in, garbage out" - an analysis is only as good as the data going in.
+    + Remember, "garbage in, garbage out" - an analysis is only as good as the data going in.  
+    + Let the data prove that it is high quality.
+- **Take the time to develop fequently used scripts into tools.**  
+    + Then have your lab mates or collaborators test them and try to break them.  
+- **Collaborate!**  
+    + Do paired-programming with your labmates and collaborators.  
+    + Hack-a-thons! 
 
 
 
@@ -74,19 +110,24 @@ Yeah, it takes a lot of effort to be robust and reproducible.  However, *it will
 - Most likely, you will have to re-run your analysis more than once.  
 - In the future, you or a collaborator may have to re-visit part of the project.  
 - You can make modularized parts of the project into re-useable tools for the future.  
-    + Let me re-phrase: **Take the time to develop fequently used scripts into tools.**  
-        + Then have your lab mates or collaborators test them and try to break them.
+- Reproducibility makes you easier to work and collaborate with.  
 
+***
 
 ### 5 Recommendations for Robust Research  
 
-
 #### 1a. Write code for humans
 
-**Code readability is very important.**  Code should be readable and broken down into small chunks that may be re-used.  (Do not re-write code to do the same task over and over again.)  
+**Code readability is very important.**  
 
-+ Comment code  
-+ Adopt a [style guide](https://github.com/google/styleguide) 
+- Code should be broken down into small chunks that may be re-used.  
+    + Do not re-write code to do the same task over and over again.  
+        + Do not repeat yourself!  (Who wants to read that?)  
+            + If you need to, make it a tool/function.  
+- Do not require readers to have to think of multiple facts at once.  
+- Make names/variables consistent, distinctive and meaningful.  
+- Adopt a [style](https://github.com/google/styleguide) and format and keep it consistent.  
+- Be a concise and clear commenter.  
     
 If your code is more readable, then:  
 
@@ -103,37 +144,50 @@ Format your data so its easily read by your computer, not by you or other humans
 - Name data files in a consistent way.  
     + Automating tasks will be easier, which will prevent you from making trivial mistakes.
 
-#### 2. Make assertions and be loud, in code and in your methods  
+#### 2. Make incremental changes.  
+- Work in small steps with frequent feedback.  
+    + Have a friend or labmate test your code and try to break it.  
+    + Challenge your PI to test your code!
+- Use version control!  
+- Put all manual changes under version control, too! 
+
+
+#### 3. Be a "Defensive Programmer" - Make Assertions  
 Add tests within your code to make sure your code is doing what it is supposed to do.  
+
+Assertions are statments that something holds true.  Assertions:  
+1. Ensure that if something goes wrong, the program will stop.  
+2. They also explain what the program is doing.
 
 - In R you can use `stopifnot()`  
     + The `testthat` package is made for this!  Check it out the [testthat package here](http://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf)  
 - In python you can use `assert()`
 
-#### 3. Use existing libraries (packages) whenever possible  
+#### 4. Use existing libraries (packages) whenever possible  
 - Do not try to re-invent the wheel while your performing your data anaylsis.  
 - Use functions that have already been written and tested for you.
 
-#### 4. Prevent catastrophe and help reproducibility by making your data **read-only**
+#### 5. Prevent catastrophe and help reproducibility by making your data **read-only**
 Read-only is important because:  
 
-- Modifying data can corrupt your results.  Therefore, making it less reproducible.  
+- Modifying data can corrupt your results.    
 - It's easy to lose track of how you have changed a file when you modify it in place.  
 
-#### 5. Let data prove that it's high quality
+
 
 #### 5 Recommendations for Robust Research  
-1. Write code for humans, write data for computers  
-2. Make assertions and be loud, in code and in your methods  
-3. Use existing libraries (packages) whenever possible  
-4. Prevent catastrophe and help reproducibility by making your data **read-only**  
-5. Let data prove that it's high quality
+1. Write code for humans, write data for computers 
+2. Make incremental changes.
+3. Make assertions and be loud, in code and in your methods  
+4. Use existing libraries (packages) whenever possible  
+5. Prevent catastrophe and help reproducibility by making your data **read-only** 
 
 
 
 
 
 
+***
 
 ### 6 Recommendations for reproducible research  
 
@@ -170,9 +224,9 @@ Using `inline code` can make the creation of tables much easier if the data chan
 
 #### 5. Write code that uses relative paths.
 
-- Do not rely on hard-coded absolute paths (i.e. /Users/marschmi/Data/seq-data.csv or even ~/Data/seq-data.csv).  
+Do not rely on hard-coded absolute paths (i.e. /Users/marschmi/Data/seq-data.csv or even ~/Data/seq-data.csv).  
 
-- Relative paths (i.e. Data/seq-data.csv) or command line arguments are better alternatives.
+Relative paths (i.e. Data/seq-data.csv) or command line arguments are better alternatives.
 
 #### 6. Always Set your seed  
 
@@ -197,15 +251,19 @@ Chat with your neighbor about your workflow.
 - Where can you add **reproducible** steps?
 
 
+***
+
 ## Do you have RStudio, R, and github all configured?
 Yes?  Then, please install **Rmarkdown** and **knitr** 
 
-`install.packages("knitr")`
+`install.packages("knitr")`  
 `install.packages("rmarkdown")` 
 
-No?  Take the time to do it now, please.  
+No?  Please take the time to do it now.  
 
-## Using Git trough RStudio  
+***
+
+## Using Git through RStudio  
 
 ### Git through RStudio  
 1.  Sign into [GitHub](https://github.com/).  
@@ -214,6 +272,8 @@ No?  Take the time to do it now, please.
 3. Open up RStudio  
 4. File -> New Project -> Version Control -> Git -> Copy and Paste the SSH clone URL.  
     + Be sure to use the same repo name as on your github page!
+
+***
 
 ## RMarkdown Time!
     
@@ -240,9 +300,6 @@ A convenient tool for reproducible and dynamic reports with R!
 ### Simple Workflow
 
 ![](Figures/rmd_workflow.jpeg)
-
-
-
 
 
 #### How to Open an Rmd File
@@ -343,7 +400,10 @@ knitr::opts_chunk$set(fig.width = 12, fig.height = 8,
 
 
 ### Inline R Code  
-- You can evaluate expressions inline by enclosing the expression within a single back-tick qualified with `r`.
+
+You can evaluate expressions inline by enclosing the expression within a single back-tick qualified with `r`.  
+
+Inline code is underappreciated!  
 
 Last night, I saw `r 5 + 2` shooting stars!  
 
@@ -400,7 +460,8 @@ devtools::session_info()
 - A course by Dr. Karl Browman at the University of Wisconsin-Madison on [Reproducible Research.](http://kbroman.org/Tools4RR/)  
 - Reproducible-Science-Curriculum [Github repo for Reproducible Research Project Initialization](https://github.com/Reproducible-Science-Curriculum/rr-init)  
 - ROpenSci [Reproducibility Research](http://ropensci.github.io/reproducibility-guide/) guidelines  
-- [Best Practices for Scientific Computing](http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745) by Wilson et al., 2014
+- [Best Practices for Scientific Computing](http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745) by Wilson et al., 2014  
+- [Stats Dept. Resources from U-Wisconsin](https://www.stat.wisc.edu/reproducible)
 
 ## Rmarkdown, RStudio and R Resources  
 - Yihui Xie's "[Dynamic Documents with R and Knitr](http://www.amazon.com/Dynamic-Documents-knitr-Chapman-Series/dp/1482203537)" and it's [github page](https://github.com/yihui/knitr-book/).  
