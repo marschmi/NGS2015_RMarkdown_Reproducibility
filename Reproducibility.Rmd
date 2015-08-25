@@ -1,5 +1,6 @@
 ---
 title: "Reproducible Research Using RMarkdown"
+subtitle: "Tutorial for NGS Workshop Week 3"
 author: "Marian L. Schmidt"
 date: "August 25, 2015"
 output:
