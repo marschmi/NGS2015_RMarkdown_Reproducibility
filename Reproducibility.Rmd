@@ -33,13 +33,16 @@ output:
 
 ***
 
-## Who is Marian Schmidt?  
-- I'm a native Michigander who likes to code in R.
+## About Me  
+- I'm a native Michigander who likes to code in R.  
 - PhD Candidate in the Department of Ecology and Evolutionary Biology at the University of Michigan in [Vincent Denef's Lab](http://www-personal.umich.edu/~vdenef/).  
+- I recently got involved in the Software Carpentry foundation.  
+- I'm a part of the U of M **FEMMES** (**F**emales **E**xcelling **M**ore in **Math** **E**nginnering and **S**cience) chapter.  FEMMES is a group that empowers 4-6th grade girls in STEM fields by holding after school science activities and a once-a-semester capstone "Day in the Lab" at U of M.  
+- I went to Hampshire College for undergrad and wrote my thesis on the evolution of magnetotactic bacteria.  
+- Next, I worked as a lab tech for a year studying the intracacies of sulfate-reducing bacteria.  
 - My dissertation is focused on the spatial and temporal distributions and activities of freshwater bacteria.  
-    + Specifically, I work on the diversity of particle-associated (3-20 um) and free-living (0.22-3 um) bacteria within both small inland lakes and in Lake Michigan.  
-    + So far I have been using 16S rRNA amplicon data at the DNA-level to study bacterial community composition.  
-    + In the future, I hope to look at functional differences between the particle-associated and free-living bacterial fractions by using metatranscriptomics.
+    + Specifically, I work on the bacterial community composition of particle-associated (3-20 um) and free-living (0.22-3 um) bacteria within both small inland lakes and in Lake Michigan.  
+    + So far I have been using 16S rRNA amplicon data at the DNA-level. In the future, I hope to look at functional differences between the particle-associated and free-living bacterial fractions by using metatranscriptomics.
 - I get to work in this beautiful place...  
 ![](Figures/LakeMichigan.jpeg)  
 - When I'm not doing science-y things, you can find me here:  
@@ -72,7 +75,10 @@ output:
     + How to calculate:  
         + Observed richness?  
         + Simpson's Evenness?  
-- The versions of the software and packages/libraries used
+- The versions of the software and packages/libraries used  
+
+## Could I replicate Figure 1 from you last publication?  
+
 
 ***
 
@@ -430,7 +436,20 @@ When you render, R will:
 
 ## Back to our Github Project within RStudio...
 
-#### Within the Github Project we created earlier, let's make a file named "LastName-ProjectName-2015.Rmd" with html output
+### Our Git Workflow within RStudio
+
+1. Make a change to our document.  
+2. Git add by checking box under "staged".  
+3. Create our commit message.  
+    + It should be a meaningful message!  
+    + Think you in 6 months looking for changes you had made.  
+4. Click "Commit."  
+5. Git Push by clicking the "Push" button.  
+6. Make sure everything is pushed to the remote repository without any errors.  
+
+Click on the clock button to view your git history.  Here, you can also view the difference between documents.  
+
+#### Within the Github Project we created earlier, let's make a file named "Practice.Rmd" with html output
 
 ```{r Set Seed, eval=FALSE, echo=TRUE}
 #runif(1, 0, 1^8)`
