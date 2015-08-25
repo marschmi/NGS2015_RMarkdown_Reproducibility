@@ -1,13 +1,16 @@
 ---
 title: "Reproducible Research Using RMarkdown"
 subtitle: "Tutorial for NGS Workshop Week 3"
-author: "Marian L. Schmidt"
+author: "Marian L. Schmidt, @micro_marian, marschmi@umich.edu"
 date: "August 25, 2015"
 output:
   html_document:
     theme: united
     toc: yes
 ---
+
+## Github page for Titus Brown's [NGS Course](https://github.com/ngs-docs/angus)  
+### [Schedule of the course](http://angus.readthedocs.org/en/2015/week3.html)
 
 ## The Agenda 
 1. What is **robust and reproducible research**?  
@@ -34,8 +37,13 @@ output:
 
 ***
 
-## About Me  
-- I'm a native Michigander who likes to code in R.  
+## About Me
+- **Twitter:** @micro_marian  
+- **e-mail:** marschmi@umich.edu
+- I'm a native Michigander who likes:  
+    + To code in R  
+    + Sharing Code  
+    + Reproducible science  
 - PhD Candidate in the Department of Ecology and Evolutionary Biology at the University of Michigan in [Vincent Denef's Lab](http://www-personal.umich.edu/~vdenef/).  
 - I recently got involved in the Software Carpentry foundation.  
 - I'm a part of the U of M **FEMMES** (**F**emales **E**xcelling **M**ore in **Math** **E**nginnering and **S**cience) chapter.  FEMMES is a group that empowers 4-6th grade girls in STEM fields by holding after school science activities and a once-a-semester capstone "Day in the Lab" at U of M.  
@@ -581,7 +589,10 @@ Always remember to included session info for reproducibility!
 - A course by Dr. Karl Browman at the University of Wisconsin-Madison on [Reproducible Research.](http://kbroman.org/Tools4RR/)  
 - Reproducible-Science-Curriculum [Github repo for Reproducible Research Project Initialization](https://github.com/Reproducible-Science-Curriculum/rr-init)  
 - ROpenSci [Reproducibility Research](http://ropensci.github.io/reproducibility-guide/) guidelines  
-- [Best Practices for Scientific Computing](http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745) by Wilson et al., 2014  
+- Puclications:  
+    + [Best Practices for Scientific Computing](http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745) by Wilson et al., 2014  
+    + [Noble, 2009](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000424)  
+    + [Peng, 2011](http://www.sciencemag.org/content/334/6060/1226.abstract)  
 - [Stats Dept. Resources from U-Wisconsin](https://www.stat.wisc.edu/reproducible)
 
 ## Resources for Rmarkdown, RStudio and R  
@@ -591,7 +602,14 @@ Always remember to included session info for reproducibility!
 - [Rmd Cheatsheet](http://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
 - [Knitr Reference Card](http://cran.r-project.org/web/packages/knitr/vignettes/knitr-refcard.pdf)  
 - [R Cookbook for ggplot](http://www.cookbook-r.com/Graphs/)
+  
+  
+## Other Awesome Resources  
+- [Software Carpentry Foundation](https://software-carpentry.org/)  
+- [Data Carpentry](http://datacarpentry.github.io/)
 
+    
+#### [Power-Posing](http://www.ted.com/talks/amy_cuddy_your_body_language_shapes_who_you_are?language=en)
 
 
 ## Session Info  
