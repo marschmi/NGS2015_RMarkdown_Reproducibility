@@ -9,8 +9,10 @@ output:
     toc: yes
 ---
 
-## Github page for Titus Brown's [NGS Course](https://github.com/ngs-docs/angus)  
-### [Schedule of the course](http://angus.readthedocs.org/en/2015/week3.html)
+## Resources that are Relevant to this Tutorial  
+### Titus Brown's [NGS Course](https://github.com/ngs-docs/angus)  
+### [Schedule of the NGS Course Week 3](http://angus.readthedocs.org/en/2015/week3.html)  
+### [Github for this website](https://github.com/marschmi/NGS2015_RMarkdown_Reproducibility)
 
 ## The Agenda 
 1. What is **robust and reproducible research**?  
@@ -31,7 +33,7 @@ output:
 ## Key Resources Used to Build this lesson
 - Vince Buffalo's [Bioinformatics Data Skills](http://www.amazon.com/Bioinformatics-Data-Skills-Reproducible-Research/dp/1449367372) book and it's helpful [github page](https://github.com/vsbuffalo/bds-files)  
     + Main source for this presentation.
-- A course by Dr. Karl Browman at the University of Wisconsin-Madison on [Reproducible Research.](http://kbroman.org/Tools4RR/)  
+- A course by Dr. Karl Broman at the University of Wisconsin-Madison on [Reproducible Research.](http://kbroman.org/Tools4RR/)  
 - [Best Practices for Scientific Computing](http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745) by Wilson et al., 2014  
 
 
@@ -67,7 +69,8 @@ output:
 - The Journal *Nature* on the [issue of reproducibility](http://www.nature.com/news/reproducibility-1.17552#/)  
     + A comment from the journal *Nature*: "Nature and the Nature research journals will introduce editorial measures to address the problem by improving the consistency and quality of reporting in life-sciences articles... **we will give more space to methods sections. We will examine statistics more closely and encourage authors to be transparent, for example by including their raw data.**"  
     + Nature also released a ["checklist"](http://www.nature.com/authors/policies/checklist.pdf) with an albeit *wimpy* computational check *(see #18)*.  
-        + This talk will hopefully help all of us improve this step.
+        + This talk will hopefully help all of us improve this step.  
+- "Baby steps for the open-curious" from [Christie Bahlai](https://practicaldatamanagement.wordpress.com/2014/10/23/baby-steps-for-the-open-curious/) 
 
 ***
 
@@ -247,7 +250,7 @@ Relative paths (i.e. Data/seq-data.csv) or command line arguments are better alt
 
 If there is any randomizations of data or simulations, use `set.seed()` in the first code chunk.
 
-[Karl Browman](http://kbroman.org/knitr_knutshell/pages/reproducible.html) suggests to open R and type runif(1, 0, 10^8) and then paste the resulting large number into `set.seed()` in the first code chunk. If you do this, then the random aspects of your analysis should be repeated the same way.
+[Karl Broman](http://kbroman.org/knitr_knutshell/pages/reproducible.html) suggests to open R and type runif(1, 0, 10^8) and then paste the resulting large number into `set.seed()` in the first code chunk. If you do this, then the random aspects of your analysis should be repeated the same way.
 
 
 #### 6 Recommendations for reproducible research  
@@ -459,137 +462,18 @@ When you render, R will:
 Click on the clock button to view your git history.  Here, you can also view the difference between documents.  
 
 
-## [Multivariate statistics with R By Ryan Williams](https://github.com/ngs-docs/angus/blob/2015/week3/visualizations/multivariate-tests/tests.md) - Data from [Adina Howe's Lab](http://germslab.org/)   
-Here, we are looking at transcript abundance within 12 different individual flys of three types of flies.  
-
-### Within the Github Project we created earlier, let's make a file named "Practice.Rmd" with html output
-
-### Let's make sure to set our seed first!
-
-Let's create a random uniform distribution between `0` and `1e+08` and then copy and paste that into the `set.seed()` function.
-
-```{r Set Seed, eval=FALSE, echo=TRUE}
-#```{r Set Seed, eval=FALSE, echo=TRUE}
-#runif(1, 0, 10^8)
-set.seed(seed = 43855096)
-#```
-```
-
-
-###  Install/Load Packages that we will use
-```{r install packages, eval=FALSE, echo=TRUE}
-#```{r install packages, eval=FALSE, echo=TRUE}
-#install.packages("devtools")
-library("devtools")
-#install.packages("ggplot2")
-library("ggplot2")
-#install.packages("RCurl")
-library("RCurl")
-#install.packages("ggplot2")
-library("ggplot2")
-#install.packages("vegan")
-library("vegan")
-#```
-```
-
-```{r install packages2, eval=TRUE, echo=FALSE}
-#```{r install packages2, eval=TRUE, echo=FALSE}
-#install.packages("devtools")
-library("devtools")
-#install.packages("ggplot2")
-library("ggplot2")
-#install.packages("RCurl")
-library("RCurl")
-#install.packages("ggplot2")
-library("ggplot2")
-#install.packages("vegan")
-library("vegan")
-```
-
-
-### Time to load in the data! 
-```{r adonis, eval=FALSE, echo = TRUE}
-#```{r adonis, eval=TRUE, echo = TRUE}
-URL<-("https://raw.githubusercontent.com/ryanjw/ngs-3rdweek/master/visualizations/datasets/fly_data.txt")
-
-dataset<-read.table(textConnection(getURL(URL)),header=T,check.names=F,sep="\t")
-#```
-```
-
-```{r adonis2, eval=TRUE, echo = FALSE}
-#```{r adonis, eval=TRUE, echo = TRUE}
-URL<-("https://raw.githubusercontent.com/ryanjw/ngs-3rdweek/master/visualizations/datasets/fly_data.txt")
-
-dataset<-read.table(textConnection(getURL(URL)),header=T,check.names=F,sep="\t")
-#```
-```
-
-Let's look at the dataset that we loaded in
-
-```{r dataset info, eval=TRUE, echo = TRUE, fig.width = 7, fig.height = 5, fig.align='center'}
-#```{r dataset info, eval=TRUE, echo = TRUE, fig.width = 4, fig.height = 4, fig.align='center'}
-dim(dataset) # Number of Rows, Number of columns 
-
-head(dataset[,1:10]) # Look at the first 10 columns 
-
-ggplot(dataset)+geom_histogram(aes(x=FBgn0000022,fill=fly,alpha=0.5)) + ggtitle("FBgn0000022 Transcript")# Plot a histogram of the distribution of the number of transcripts for the "FBgn0000022" transcript.
-#```
-```
-
-### Standardize the data and then ask:  "Are the expression profiles different?"
-```{r standardized adonis, echo=TRUE, eval = TRUE}
-#```{r standardized adonis, echo=TRUE, eval = TRUE}
-adonis(decostand(dataset[,-c(1:3)],method="total")~dataset$fly*dataset$type)
-#```
-```
-
-### Are different transcripts present or absent between flys and types?
-```{r presence/absence adonis, echo=TRUE, eval = TRUE}
-#```{r presence/absence adonis, echo=TRUE, eval = TRUE}
-adonis(decostand(dataset[,-c(1:3)],method="pa")~dataset$fly*dataset$type,method="jaccard")
-#```
-```
-
-
-
-###  [Data Visualizations from Ryan Williams](https://github.com/ngs-docs/angus/blob/2015/week3/visualizations/multivariate-viz/visualizations.md) 
-```{r visualizations, eval=TRUE, echo = TRUE, fig.width = 7, fig.height = 5, fig.align='center'}
-#```{r visualizations, eval=TRUE, echo = TRUE, fig.width = 7, fig.height = 5, fig.align='center'}
-URL<-("https://raw.githubusercontent.com/ryanjw/ngs-3rdweek/master/visualizations/multivariate-viz/fly_data_with_unknowns.txt")
-fly_unknowns<-read.table(textConnection(getURL(URL)),header=T,check.names=F,sep="\t")
-
-head(fly_unknowns[,1:10])
-tail(fly_unknowns[,1:10])
-
- mds<-metaMDS(fly_unknowns[,-c(1:4)],distance="bray",autotransform=F,k=3 )
- sc<-data.frame(scores(mds),fly_unknowns[,1:3])
- head(sc)
-
- ggplot(sc, aes(x=NMDS1,y=NMDS2, color = type))+geom_point()
-```
-
-
-
-
-
-Always remember to included session info for reproducibility!
-
-```{r session_info, eval = FALSE, include=TRUE, echo=TRUE, results='markup'}
-#```{r session_info, eval = FALSE, include=TRUE, echo=TRUE, results='markup'}
- devtools::session_info()
-```
-
-
+## Challenge  
+#### Create an html output file with the analysis from the lesson on [Multivariate statistics By Ryan Williams](https://github.com/ngs-docs/angus/blob/2015/week3/visualizations/multivariate-tests/tests.md) using data from [Adina Howe's Lab](http://germslab.org/)   
 
 
 
 ## Resources for Reproducible Research  
 - Vince Buffalo's [Bioinformatics Data Skills](http://www.amazon.com/Bioinformatics-Data-Skills-Reproducible-Research/dp/1449367372) book and it's helpful [github page](https://github.com/vsbuffalo/bds-files)  
     + Main source for this presentation.
-- A course by Dr. Karl Browman at the University of Wisconsin-Madison on [Reproducible Research.](http://kbroman.org/Tools4RR/)  
+- A course by Dr. Karl Broman at the University of Wisconsin-Madison on [Reproducible Research.](http://kbroman.org/Tools4RR/)  
 - Reproducible-Science-Curriculum [Github repo for Reproducible Research Project Initialization](https://github.com/Reproducible-Science-Curriculum/rr-init)  
 - ROpenSci [Reproducibility Research](http://ropensci.github.io/reproducibility-guide/) guidelines  
-- Puclications:  
+- Publications:  
     + [Best Practices for Scientific Computing](http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745) by Wilson et al., 2014  
     + [Noble, 2009](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000424)  
     + [Peng, 2011](http://www.sciencemag.org/content/334/6060/1226.abstract)  
@@ -604,7 +488,7 @@ Always remember to included session info for reproducibility!
 - [R Cookbook for ggplot](http://www.cookbook-r.com/Graphs/)
   
   
-## Other Awesome Resources  
+## Other Resources  
 - [Software Carpentry Foundation](https://software-carpentry.org/)  
 - [Data Carpentry](http://datacarpentry.github.io/)
 
