@@ -10,11 +10,13 @@ output:
 ---
 
 ## Resources that are Relevant to this Tutorial  
-### Titus Brown's [NGS Course](https://github.com/ngs-docs/angus)  
-### [Schedule of the NGS Course Week 3](http://angus.readthedocs.org/en/2015/week3.html)  
-### [Github for this website](https://github.com/marschmi/NGS2015_RMarkdown_Reproducibility)
+- Titus Brown's [NGS Course](https://github.com/ngs-docs/angus)  
+    + [Schedule of the NGS Course Week 3](http://angus.readthedocs.org/en/2015/week3.html)  
+- [Github for this website](https://github.com/marschmi/NGS2015_RMarkdown_Reproducibility)  
 
-## The Agenda 
+## The Agenda and Learning Goals  
+#### **Agenda**  
+
 1. What is **robust and reproducible research**?  
 2. How can you make **your research** more **robust and reproducible**?  
 3. You can use RMarkdown!  Wait, what's RMarkdown?
@@ -22,13 +24,15 @@ output:
 5. Using **git** through RStudio.   
 6. Initialize your a more reproducible github repo within RStudio!
 
-## Learning Goals  
+#### **Learning Goals**  
 1. Walk away knowing what **robust and reproducible research** are.  
 2. To know the changes you can make to your research to make it more **robust and reproducible.**  
 3. To understand what RMarkdown *is.*
 4. To know how to create an RMarkdown document and understand it's uses for code sharing. 
 5. To understand how to use **git** through the RStudio interface.
 6. Know how to initialize a more reproducible github repo within RStudio!
+
+***
 
 ## Key Resources Used to Build this lesson
 - Vince Buffalo's [Bioinformatics Data Skills](http://www.amazon.com/Bioinformatics-Data-Skills-Reproducible-Research/dp/1449367372) book and it's helpful [github page](https://github.com/vsbuffalo/bds-files)  
@@ -49,10 +53,10 @@ output:
 - PhD Candidate in the Department of Ecology and Evolutionary Biology at the University of Michigan in [Vincent Denef's Lab](http://www-personal.umich.edu/~vdenef/).  
 - I recently got involved in the Software Carpentry foundation.  
 - I'm a part of the U of M **FEMMES** (**F**emales **E**xcelling **M**ore in **Math** **E**nginnering and **S**cience) chapter.  FEMMES is a group that empowers 4-6th grade girls in STEM fields by holding after school science activities and a once-a-semester capstone "Day in the Lab" at U of M.  
-- I went to Hampshire College for undergrad and wrote my thesis on the evolution of magnetotactic bacteria.  
+- I went to **Hampshire College** for undergrad and wrote my thesis on the [evolution of magnetotaxis in magnetotactic bacteria](http://www.ncbi.nlm.nih.gov/pubmed/22865076).  
 - Next, I worked as a lab tech for a year studying the intracacies of sulfate-reducing bacteria.  
 - My dissertation is focused on the spatial and temporal distributions and activities of freshwater bacteria.  
-    + Specifically, I work on the bacterial community composition of particle-associated (3-20 um) and free-living (0.22-3 um) bacteria within both small inland lakes and in Lake Michigan.  
+    + Specifically, I work on the bacterial community composition of particle-associated (3-20 um) and free-living (0.22-3 um) bacteria within small inland lakes and in Lake Michigan.  
     + So far I have been using 16S rRNA amplicon data at the DNA-level. In the future, I hope to look at functional differences between the particle-associated and free-living bacterial fractions by using metatranscriptomics.
 - I get to work in this beautiful place...  
 ![](Figures/LakeMichigan.jpeg)  
@@ -70,7 +74,6 @@ output:
     + A comment from the journal *Nature*: "Nature and the Nature research journals will introduce editorial measures to address the problem by improving the consistency and quality of reporting in life-sciences articles... **we will give more space to methods sections. We will examine statistics more closely and encourage authors to be transparent, for example by including their raw data.**"  
     + Nature also released a ["checklist"](http://www.nature.com/authors/policies/checklist.pdf) with an albeit *wimpy* computational check *(see #18)*.  
         + This talk will hopefully help all of us improve this step.  
-- "Baby steps for the open-curious" from [Christie Bahlai](https://practicaldatamanagement.wordpress.com/2014/10/23/baby-steps-for-the-open-curious/) 
 
 ***
 
@@ -89,7 +92,7 @@ output:
         + Simpson's Evenness?  
 - The versions of the software and packages/libraries used  
 
-## Could I replicate Figure 1 from you last publication?  
+### Could I replicate Figure 1 from your last publication?  
 
 
 ***
@@ -131,6 +134,7 @@ Yeah, it takes a lot of effort to be robust and reproducible.  However, *it will
 - Reproducibility makes you easier to work and collaborate with.  
 
 ***
+## Some Recommendations
 
 ### 5 Recommendations for Robust Research  
 
@@ -261,8 +265,9 @@ If there is any randomizations of data or simulations, use `set.seed()` in the f
 5. Write code that uses relative paths.  
 6. Always Set your seed.  
 
+***
 
-### How can you revise your work flow?  
+#### How can you revise your work flow?  
 Chat with your neighbor about your workflow.  
 
 - Where you can introduce **robust** steps?  
@@ -271,19 +276,18 @@ Chat with your neighbor about your workflow.
 
 ***
 
-## Do you have RStudio, R, and github all configured?
-Yes?  Then, please install **Rmarkdown** and **knitr** 
-
-`install.packages("knitr")`  
-`install.packages("rmarkdown")` 
-
-No?  Please take the time to do it now.  
+#### Do you have ...  
+1. [RStudio?](https://www.rstudio.com/products/rstudio/download/)  
+2. [R?](http://www.inside-r.org/download)  
+    + `install.packages("knitr")`  
+    + `install.packages("rmarkdown")` 
+3. A [GitHub](https://github.com/) account?  
+4. [Git?](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) 
 
 ***
 
 ## Using Git through RStudio  
 
-### Git through RStudio  
 1.  Sign into [GitHub](https://github.com/).  
 2. [Initialize repo on the github page](http://angus.readthedocs.org/en/2015/CTB-github.html).  
     + Name the Repo "NGS_Reproducibility"  
@@ -477,7 +481,9 @@ Click on the clock button to view your git history.  Here, you can also view the
     + [Best Practices for Scientific Computing](http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745) by Wilson et al., 2014  
     + [Noble, 2009](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000424)  
     + [Peng, 2011](http://www.sciencemag.org/content/334/6060/1226.abstract)  
-- [Stats Dept. Resources from U-Wisconsin](https://www.stat.wisc.edu/reproducible)
+- [Stats Dept. Resources from U-Wisconsin](https://www.stat.wisc.edu/reproducible)  
+- "Baby steps for the open-curious" from [Christie Bahlai](https://practicaldatamanagement.wordpress.com/2014/10/23/baby-steps-for-the-open-curious/) 
+
 
 ## Resources for Rmarkdown, RStudio and R  
 - Yihui Xie's "[Dynamic Documents with R and Knitr](http://www.amazon.com/Dynamic-Documents-knitr-Chapman-Series/dp/1482203537)" and it's [github page](https://github.com/yihui/knitr-book/).  
@@ -493,10 +499,10 @@ Click on the clock button to view your git history.  Here, you can also view the
 - [Data Carpentry](http://datacarpentry.github.io/)
 
     
-#### [Power-Posing](http://www.ted.com/talks/amy_cuddy_your_body_language_shapes_who_you_are?language=en)
+##### [Power-Posing](http://www.ted.com/talks/amy_cuddy_your_body_language_shapes_who_you_are?language=en)
 
 
-## Session Info  
+#### Session Info  
 [Dr. Karl Broman](http://kbroman.org/knitr_knutshell/pages/reproducible.html) recommends using the `session_info()` from the devtools package.
 ```{r Presentation session_info, include=TRUE, echo=TRUE, results='markup'}
 devtools::session_info()
