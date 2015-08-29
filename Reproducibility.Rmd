@@ -12,7 +12,7 @@ output:
 ## Resources that are Relevant to this Tutorial  
 - Titus Brown's [NGS Course](https://github.com/ngs-docs/angus)  
     + [Schedule of the NGS Course Week 3](http://angus.readthedocs.org/en/2015/week3.html)  
-- [Github for this website](https://github.com/marschmi/NGS2015_RMarkdown_Reproducibility)  
+- Github for this website: [https://github.com/marschmi/NGS2015_RMarkdown_Reproducibility](https://github.com/marschmi/NGS2015_RMarkdown_Reproducibility)
 
 ## The Agenda and Learning Goals  
 #### **Agenda**  
@@ -69,7 +69,8 @@ output:
 - The [LaCour Scandal](http://fivethirtyeight.com/datalab/as-a-major-retraction-shows-were-all-vulnerable-to-faked-data/) of fabricated data published in *Science*.  
 - Scientists in the United States spend [$28 billion](http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002165) each year on basic biomedical research that cannot be repeated successfully  
 - A reproducibility study in psychology found that only [39 of 100 studies could be reproduced](http://www.nature.com/news/first-results-from-psychology-s-largest-reproducibility-test-1.17433).  
-    + A quote: *“A lot of working scientists assume that if it’s published, it’s right... This makes it hard to dismiss that there are still a lot of false positives in the literature.”*
+    + A quote: *“A lot of working scientists assume that if it’s published, it’s right... This makes it hard to dismiss that there are still a lot of false positives in the literature.”*  
+- [Recent Atlantic Article by Ed Yong](http://www.theatlantic.com/health/archive/2015/08/psychology-studies-reliability-reproducability-nosek/402466/)
 - The Journal *Nature* on the [issue of reproducibility](http://www.nature.com/news/reproducibility-1.17552#/)  
     + A comment from the journal *Nature*: "Nature and the Nature research journals will introduce editorial measures to address the problem by improving the consistency and quality of reporting in life-sciences articles... **we will give more space to methods sections. We will examine statistics more closely and encourage authors to be transparent, for example by including their raw data.**"  
     + Nature also released a ["checklist"](http://www.nature.com/authors/policies/checklist.pdf) with an albeit *wimpy* computational check *(see #18)*.  
@@ -93,6 +94,7 @@ output:
 - The versions of the software and packages/libraries used  
 
 ### Could I replicate Figure 1 from your last publication?  
+If not, what would **you and your co-authors** need to provide or do so I could replicate Figure 1 from your last publication?
 
 
 ***
@@ -268,7 +270,6 @@ If there is any randomizations of data or simulations, use `set.seed()` in the f
 ***
 
 #### How can you revise your work flow?  
-Chat with your neighbor about your workflow.  
 
 - Where you can introduce **robust** steps?  
 - Where can you add **reproducible** steps?
@@ -279,10 +280,13 @@ Chat with your neighbor about your workflow.
 #### Do you have ...  
 1. [RStudio?](https://www.rstudio.com/products/rstudio/download/)  
 2. [R?](http://www.inside-r.org/download)  
-    + `install.packages("knitr")`  
-    + `install.packages("rmarkdown")` 
+    + Please install these packages:  
+        + `install.packages("knitr")`  
+        + `install.packages("rmarkdown")` 
 3. A [GitHub](https://github.com/) account?  
-4. [Git?](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) 
+4. [Git?](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)  
+
+You are good to go!
 
 ***
 
@@ -450,18 +454,17 @@ When you render, R will:
 
 
 
-## Back to our Github Project within RStudio...
+## A Git Workflow within RStudio
 
-### Our Git Workflow within RStudio
-
-1. Make a change to our document.  
-2. Git add by checking box under "staged".  
-3. Create our commit message.  
-    + It should be a meaningful message!  
-    + Think of you in 6 months looking for changes you had made.  Don't you want to be your own friend?  
-4. Click "Commit."  
-5. Git Push by clicking the "Push" button.  
-6. Make sure everything is pushed to the remote repository without any errors.  
+1. Make some changes to your document that you would like to save a *copy* of.  
+2. **Git add** by checking the box under "staged" in the git screen.  
+    +*(The git screen is in the same pane as the RStudio Environment and history).*  
+3. Draft your commit message.  
+    + It should be a **meaningful message!**  
+    + Think of you in 6 months looking for changes you had made to your document.  Don't you want to be your own friend?  
+4. Click **"Commit."**  
+5. Perform a **Git Push** by clicking the bright green arrow, which is the "git Push" button.  
+6. Make sure everything is pushed to the remote repository (the ) without any errors.  
 
 Click on the clock button to view your git history.  Here, you can also view the difference between documents.  
 
@@ -487,6 +490,7 @@ Click on the clock button to view your git history.  Here, you can also view the
 
 ## Resources for Rmarkdown, RStudio and R  
 - Yihui Xie's "[Dynamic Documents with R and Knitr](http://www.amazon.com/Dynamic-Documents-knitr-Chapman-Series/dp/1482203537)" and it's [github page](https://github.com/yihui/knitr-book/).  
+- Resources from Dr. Jennifer Bryan's [Stats 545](http://stat545-ubc.github.io/git00_index.html).  
 - [RMarkdown Quick Reference Guide](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf) - Christopher Gandrud's "[Reproducible Research with R and RStudio](http://www.amazon.com/Reproducible-Research-Studio-Chapman-Series/dp/1466572841)" and it's github page
 - [RStudio RMarkdown Documentation](http://rmarkdown.rstudio.com/)  
 - [Rmd Cheatsheet](http://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
