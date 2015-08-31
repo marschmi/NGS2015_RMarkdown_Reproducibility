@@ -1,5 +1,5 @@
 ---
-title: "Reproducible Research Using RMarkdown"
+title: "Reproducible Research Using RMarkdown and Git through RStudio"
 subtitle: "Tutorial for NGS Workshop Week 3"
 author: "Marian L. Schmidt, @micro_marian, marschmi@umich.edu"
 date: "August 25, 2015"
@@ -9,9 +9,13 @@ output:
     toc: yes
 ---
 
-## Resources that are Relevant to this Tutorial  
+## Information that is Relevant to this Tutorial  
+
+This tutorial was constructed as a part of Titus Brown's Next Generation Sequencing Data Analysis Workshop **Week 3** that took place at Michigan State University's Kellogg Biological Station between August 24-28, 2015. 
+
 - Titus Brown's [NGS Course](https://github.com/ngs-docs/angus)  
     + [Schedule of the NGS Course Week 3](http://angus.readthedocs.org/en/2015/week3.html)  
+    + A [blog post from Titus](http://ivory.idyll.org/blog/tag/ngs-course.html) synthesizing the third week of the course.  
 - Github for this website: [https://github.com/marschmi/NGS2015_RMarkdown_Reproducibility](https://github.com/marschmi/NGS2015_RMarkdown_Reproducibility)
 
 ## The Agenda and Learning Goals  
@@ -37,31 +41,9 @@ output:
 ## Key Resources Used to Build this lesson
 - Vince Buffalo's [Bioinformatics Data Skills](http://www.amazon.com/Bioinformatics-Data-Skills-Reproducible-Research/dp/1449367372) book and it's helpful [github page](https://github.com/vsbuffalo/bds-files)  
     + Main source for this presentation.
-- A course by Dr. Karl Broman at the University of Wisconsin-Madison on [Reproducible Research.](http://kbroman.org/Tools4RR/)  
+- A course by Karl Broman at the University of Wisconsin-Madison on [Reproducible Research.](http://kbroman.org/Tools4RR/)  
 - [Best Practices for Scientific Computing](http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745) by Wilson et al., 2014  
 
-
-***
-
-## About Me
-- **Twitter:** @micro_marian  
-- **e-mail:** marschmi@umich.edu
-- I'm a native Michigander who likes:  
-    + To code in R  
-    + Sharing Code  
-    + Reproducible science  
-- PhD Candidate in the Department of Ecology and Evolutionary Biology at the University of Michigan in [Vincent Denef's Lab](http://www-personal.umich.edu/~vdenef/).  
-- I recently got involved in the Software Carpentry foundation.  
-- I'm a part of the U of M **FEMMES** (**F**emales **E**xcelling **M**ore in **Math** **E**nginnering and **S**cience) chapter.  FEMMES is a group that empowers 4-6th grade girls in STEM fields by holding after school science activities and a once-a-semester capstone "Day in the Lab" at U of M.  
-- I went to **Hampshire College** for undergrad and wrote my thesis on the [evolution of magnetotaxis in magnetotactic bacteria](http://www.ncbi.nlm.nih.gov/pubmed/22865076).  
-- Next, I worked as a lab tech for a year studying the intracacies of sulfate-reducing bacteria.  
-- My dissertation is focused on the spatial and temporal distributions and activities of freshwater bacteria.  
-    + Specifically, I work on the bacterial community composition of particle-associated (3-20 um) and free-living (0.22-3 um) bacteria within small inland lakes and in Lake Michigan.  
-    + So far I have been using 16S rRNA amplicon data at the DNA-level. In the future, I hope to look at functional differences between the particle-associated and free-living bacterial fractions by using metatranscriptomics.
-- I get to work in this beautiful place...  
-![](Figures/LakeMichigan.jpeg)  
-- When I'm not doing science-y things, you can find me here:  
-![](Figures/climbing2.jpg) 
 
 ***
 
@@ -331,15 +313,12 @@ A convenient tool for reproducible and dynamic reports with R!
 #### How to Open an Rmd File
 ![](Figures/new.jpeg)  
 
-#### How to Open an Rmd File
 ![](Figures/newRMD.jpeg)
 
 
 
 #### Choose Output
-![](Figures/YAML_header.jpeg)
-
-**YAML:**  A set of key value pairs at the start of your file.  Begin and end the header with a line of three dashes (- - -)
+**YAML Header:**  A set of key value pairs at the start of your file.  Begin and end the header with a line of three dashes (---)
 
 ***R Studio template writes the YAML header for you***  
 
@@ -349,7 +328,19 @@ output: word_document
 output: beamer_presentation (beamer slideshow - pdf)  
 output: ioslides_presentation (ioslides presentation - html)  
 
-
+**For example:**  Here's the YAML header for this webpage with a table of contents.
+```
+---
+title: "Reproducible Research Using RMarkdown and Git through RStudio"
+subtitle: "Tutorial for NGS Workshop Week 3"
+author: "Marian L. Schmidt, @micro_marian, marschmi@umich.edu"
+date: "August 25, 2015"
+output:
+  html_document:
+    theme: united
+    toc: yes
+---
+```
 
 #### Markdown basics 
 Markdown is a simple formatting language that is easy to use
@@ -384,13 +375,8 @@ max(diamonds$price)
 
 
 #### More R Code Chunks 
-
-```{r example chunk, echo = TRUE, eval = TRUE}
-x <- sample(1:100, 5)
-x
-```
-
 ![](Figures/chunk_example.jpeg)
+
 
 + You can name the code chunk.  
 
@@ -458,26 +444,28 @@ When you render, R will:
 
 1. Make some changes to your document that you would like to save a *copy* of.  
 2. **Git add** by checking the box under "staged" in the git screen.  
-    +*(The git screen is in the same pane as the RStudio Environment and history).*  
+    + *Hint: The git screen is in the same pane as the RStudio Environment and history.*  
 3. Draft your commit message.  
     + It should be a **meaningful message!**  
     + Think of you in 6 months looking for changes you had made to your document.  Don't you want to be your own friend?  
 4. Click **"Commit."**  
-5. Perform a **Git Push** by clicking the bright green arrow, which is the "git Push" button.  
-6. Make sure everything is pushed to the remote repository (the ) without any errors.  
+5. Perform **Git Push** by clicking the bright green arrow, which is the "git Push" button.  
+6. Make sure everything is pushed to the remote repository without any errors.  
 
 Click on the clock button to view your git history.  Here, you can also view the difference between documents.  
 
 
 ## Challenge  
-#### Create an html output file with the analysis from the lesson on [Multivariate statistics By Ryan Williams](https://github.com/ngs-docs/angus/blob/2015/week3/visualizations/multivariate-tests/tests.md) using data from [Adina Howe's Lab](http://germslab.org/)   
+#### Create an html output file with the analysis from the lesson on [Multivariate statistics By Ryan Williams](https://github.com/ngs-docs/angus/blob/2015/week3/visualizations/multivariate-tests/tests.md) using data from [Adina Howe's Lab](http://germslab.org/)  
+- If the link for Ryan William's lesson does not work, please try here: [https://github.com/ngs-docs/angus/blob/2015/week3/visualizations/multivariate-tests/tests.md](https://github.com/ngs-docs/angus/blob/2015/week3/visualizations/multivariate-tests/tests.md)
 
 
 
-## Resources for Reproducible Research  
+## Resources  
+### Resources for Reproducible Research  
 - Vince Buffalo's [Bioinformatics Data Skills](http://www.amazon.com/Bioinformatics-Data-Skills-Reproducible-Research/dp/1449367372) book and it's helpful [github page](https://github.com/vsbuffalo/bds-files)  
     + Main source for this presentation.
-- A course by Dr. Karl Broman at the University of Wisconsin-Madison on [Reproducible Research.](http://kbroman.org/Tools4RR/)  
+- A course by Karl Broman at the University of Wisconsin-Madison on [Reproducible Research.](http://kbroman.org/Tools4RR/)  
 - Reproducible-Science-Curriculum [Github repo for Reproducible Research Project Initialization](https://github.com/Reproducible-Science-Curriculum/rr-init)  
 - ROpenSci [Reproducibility Research](http://ropensci.github.io/reproducibility-guide/) guidelines  
 - Publications:  
@@ -488,9 +476,9 @@ Click on the clock button to view your git history.  Here, you can also view the
 - "Baby steps for the open-curious" from [Christie Bahlai](https://practicaldatamanagement.wordpress.com/2014/10/23/baby-steps-for-the-open-curious/) 
 
 
-## Resources for Rmarkdown, RStudio and R  
+### Resources for Rmarkdown, RStudio and R  
 - Yihui Xie's "[Dynamic Documents with R and Knitr](http://www.amazon.com/Dynamic-Documents-knitr-Chapman-Series/dp/1482203537)" and it's [github page](https://github.com/yihui/knitr-book/).  
-- Resources from Dr. Jennifer Bryan's [Stats 545](http://stat545-ubc.github.io/git00_index.html).  
+- Resources from Jennifer Bryan's [Stats 545](http://stat545-ubc.github.io/git00_index.html).  
 - [RMarkdown Quick Reference Guide](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf) - Christopher Gandrud's "[Reproducible Research with R and RStudio](http://www.amazon.com/Reproducible-Research-Studio-Chapman-Series/dp/1466572841)" and it's github page
 - [RStudio RMarkdown Documentation](http://rmarkdown.rstudio.com/)  
 - [Rmd Cheatsheet](http://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
@@ -498,16 +486,37 @@ Click on the clock button to view your git history.  Here, you can also view the
 - [R Cookbook for ggplot](http://www.cookbook-r.com/Graphs/)
   
   
-## Other Resources  
+### Other Resources  
 - [Software Carpentry Foundation](https://software-carpentry.org/)  
-- [Data Carpentry](http://datacarpentry.github.io/)
+- [Data Carpentry](http://datacarpentry.github.io/)  
+- [Power-Posing](http://www.ted.com/talks/amy_cuddy_your_body_language_shapes_who_you_are?language=en)
 
-    
-##### [Power-Posing](http://www.ted.com/talks/amy_cuddy_your_body_language_shapes_who_you_are?language=en)
+***
 
+## About Me
+- **Twitter:** @micro_marian  
+- **e-mail:** marschmi@umich.edu
+- I'm a native Michigander who likes:  
+    + To code in R  
+    + Sharing Code  
+    + Reproducible science  
+- PhD Candidate in the Department of Ecology and Evolutionary Biology at the University of Michigan in [Vincent Denef's Lab](http://www-personal.umich.edu/~vdenef/).  
+- I recently got involved in the Software Carpentry foundation.  
+- I'm a part of the U of M **FEMMES** (**F**emales **E**xcelling **M**ore in **Math** **E**nginnering and **S**cience) chapter.  FEMMES is a group that empowers 4-6th grade girls in STEM fields by holding after school science activities and a once-a-semester capstone "Day in the Lab" at U of M.  
+- I went to **Hampshire College** for undergrad and wrote my thesis on the [evolution of magnetotaxis in magnetotactic bacteria](http://www.ncbi.nlm.nih.gov/pubmed/22865076).  
+- Next, I worked as a lab tech for a year studying the intracacies of sulfate-reducing bacteria.  
+- My dissertation is focused on the spatial and temporal distributions and activities of freshwater bacteria.  
+    + Specifically, I work on the bacterial community composition of particle-associated (3-20 um) and free-living (0.22-3 um) bacteria within small inland lakes and in Lake Michigan.  
+    + So far I have been using 16S rRNA amplicon data at the DNA-level. In the future, I hope to look at functional differences between the particle-associated and free-living bacterial fractions by using metatranscriptomics.
+- I get to work in this beautiful place...  
+![](Figures/LakeMichigan.jpeg)  
+- When I'm not doing science-y things, you can find me here:  
+![](Figures/climbing2.jpg) 
+
+***
 
 #### Session Info  
-[Dr. Karl Broman](http://kbroman.org/knitr_knutshell/pages/reproducible.html) recommends using the `session_info()` from the devtools package.
+[Karl Broman](http://kbroman.org/knitr_knutshell/pages/reproducible.html) recommends using the `session_info()` from the devtools package.
 ```{r Presentation session_info, include=TRUE, echo=TRUE, results='markup'}
 devtools::session_info()
 ```
