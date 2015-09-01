@@ -448,6 +448,7 @@ When you render, R will:
 3. Draft your commit message.  
     + It should be a **meaningful message!**  
     + Think of you in 6 months looking for changes you had made to your document.  Don't you want to be your own friend?  
+    + Do not allow your commit messages to get <a href="https://xkcd.com/1296/" target="_blank">less informative</a> as your project continues  
 4. Click **"Commit."**  
 5. Perform **Git Push** by clicking the bright green arrow, which is the "git Push" button.  
 6. Make sure everything is pushed to the remote repository without any errors.  
