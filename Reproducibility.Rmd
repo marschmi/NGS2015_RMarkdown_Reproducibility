@@ -13,10 +13,10 @@ output:
 
 This tutorial was constructed as a part of Titus Brown's Next Generation Sequencing Data Analysis Workshop **Week 3** that took place at Michigan State University's Kellogg Biological Station between August 24-28, 2015. 
 
-- Titus Brown's [NGS Course](https://github.com/ngs-docs/angus)  
-    + [Schedule of the NGS Course Week 3](http://angus.readthedocs.org/en/2015/week3.html)  
-    + A [blog post from Titus](http://ivory.idyll.org/blog/tag/ngs-course.html) synthesizing the third week of the course.  
-- Github for this website: [https://github.com/marschmi/NGS2015_RMarkdown_Reproducibility](https://github.com/marschmi/NGS2015_RMarkdown_Reproducibility)
+- Titus Brown's <a href="https://github.com/ngs-docs/angus" target="_blank">NGS Course</a>  
+    + <a href="http://angus.readthedocs.org/en/2015/week3.html" target="_blank">Schedule of the NGS Course Week 3</a>  
+    + A <a href="http://ivory.idyll.org/blog/tag/ngs-course.html" target="_blank">blog post from Titus</a> synthesizing the third week of the course.  
+- Github for <a href="https://github.com/marschmi/NGS2015_RMarkdown_Reproducibility" target="_blank">this website</a>  
 
 ## The Agenda and Learning Goals  
 #### **Agenda**  
@@ -39,23 +39,23 @@ This tutorial was constructed as a part of Titus Brown's Next Generation Sequenc
 ***
 
 ## Key Resources Used to Build this lesson
-- Vince Buffalo's [Bioinformatics Data Skills](http://www.amazon.com/Bioinformatics-Data-Skills-Reproducible-Research/dp/1449367372) book and it's helpful [github page](https://github.com/vsbuffalo/bds-files)  
+- Vince Buffalo's <a href="http://www.amazon.com/Bioinformatics-Data-Skills-Reproducible-Research/dp/1449367372" target="_blank">Bioinformatics Data Skills</a> book and it's helpful <a href="https://github.com/vsbuffalo/bds-files" target="_blank">github page.</a>
     + Main source for this presentation.
-- A course by Karl Broman at the University of Wisconsin-Madison on [Reproducible Research.](http://kbroman.org/Tools4RR/)  
-- [Best Practices for Scientific Computing](http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745) by Wilson et al., 2014  
+- A course by Karl Broman at the University of Wisconsin-Madison on <a href="http://kbroman.org/Tools4RR/" target="_blank">Reproducible Research.</a>  
+- <a href="http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745" target="_blank">Best Practices for Scientific Computing</a> by Wilson et al., 2014.
 
 
 ***
 
 ## We scientists have a few problems  
-- The [LaCour Scandal](http://fivethirtyeight.com/datalab/as-a-major-retraction-shows-were-all-vulnerable-to-faked-data/) of fabricated data published in *Science*.  
-- Scientists in the United States spend [$28 billion](http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002165) each year on basic biomedical research that cannot be repeated successfully  
-- A reproducibility study in psychology found that only [39 of 100 studies could be reproduced](http://www.nature.com/news/first-results-from-psychology-s-largest-reproducibility-test-1.17433).  
+- The <a href="http://fivethirtyeight.com/datalab/as-a-major-retraction-shows-were-all-vulnerable-to-faked-data/" target="_blank">LaCour Scandal</a> of fabricated data published in *Science*.  
+- Scientists in the United States spend <a href="http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002165" target="_blank">$28 billion</a> each year on basic biomedical research that cannot be repeated successfully  
+- A reproducibility study in psychology found that only <a href="http://www.nature.com/news/first-results-from-psychology-s-largest-reproducibility-test-1.17433" target="_blank">39 of 100 studies could be reproduced.</a>  
     + A quote: *“A lot of working scientists assume that if it’s published, it’s right... This makes it hard to dismiss that there are still a lot of false positives in the literature.”*  
-- [Recent Atlantic Article by Ed Yong](http://www.theatlantic.com/health/archive/2015/08/psychology-studies-reliability-reproducability-nosek/402466/)
-- The Journal *Nature* on the [issue of reproducibility](http://www.nature.com/news/reproducibility-1.17552#/)  
+- <a href="http://www.theatlantic.com/health/archive/2015/08/psychology-studies-reliability-reproducability-nosek/402466/" target="_blank">Recent Atlantic Article by Ed Yong</a>  
+- The Journal *Nature* on the <a href="http://www.nature.com/news/reproducibility-1.17552#/" target="_blank">issue of reproducibility</a>  
     + A comment from the journal *Nature*: "Nature and the Nature research journals will introduce editorial measures to address the problem by improving the consistency and quality of reporting in life-sciences articles... **we will give more space to methods sections. We will examine statistics more closely and encourage authors to be transparent, for example by including their raw data.**"  
-    + Nature also released a ["checklist"](http://www.nature.com/authors/policies/checklist.pdf) with an albeit *wimpy* computational check *(see #18)*.  
+    + Nature also released a <a href="http://www.nature.com/authors/policies/checklist.pdf" target="_blank">checklist</a> with an albeit *wimpy* computational check *(see #18)*.  
         + This talk will hopefully help all of us improve this step.  
 
 ***
@@ -132,7 +132,7 @@ Yeah, it takes a lot of effort to be robust and reproducible.  However, *it will
             + If you need to, make it a tool/function.  
 - Do not require readers to have to think of multiple facts at once.  
 - Make names/variables consistent, distinctive and meaningful.  
-- Adopt a [style](https://github.com/google/styleguide) and format and keep it consistent.  
+- Adopt a <a href="https://github.com/google/styleguide" target="_blank">style</a> and format and keep it consistent.  
 - Be a concise and clear commenter.  
     
 If your code is more readable, then:  
@@ -166,7 +166,7 @@ Assertions are statments that something holds true.  Assertions:
 2. They also explain what the program is doing.
 
 - In R you can use `stopifnot()`  
-    + The `testthat` package is made for this!  Check it out the [testthat package here](http://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf)  
+    + The `testthat` package is made for this!  Check it out the <a href="http://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf" target="_blank">testthat package here</a>  
 - In python you can use `assert()`
 
 #### 4. Use existing libraries (packages) whenever possible  
@@ -199,7 +199,7 @@ Read-only is important because:
 
 
 #### 1. Encapsulate the full project into one directory that is supported with version control.  
-The **Reproducible-Science-Curriculum** [Github repo for Reproducible Research Project Initialization](https://github.com/Reproducible-Science-Curriculum/rr-init) is a great place to start a reproducible research project.  
+The **Reproducible-Science-Curriculum** <a href="https://github.com/Reproducible-Science-Curriculum/rr-init" target="_blank">Github repo for Reproducible Research Project Initialization</a> is a great place to start a reproducible research project.  
 
 #### 2. Release your code and data
 It is simple.  Without your code and data, your research is not reproducible.
@@ -238,7 +238,7 @@ Relative paths (i.e. Data/seq-data.csv) or command line arguments are better alt
 
 If there is any randomizations of data or simulations, use `set.seed()` in the first code chunk.
 
-[Karl Broman](http://kbroman.org/knitr_knutshell/pages/reproducible.html) suggests to open R and type runif(1, 0, 10^8) and then paste the resulting large number into `set.seed()` in the first code chunk. If you do this, then the random aspects of your analysis should be repeated the same way.
+<a href="http://kbroman.org/knitr_knutshell/pages/reproducible.html" target="_blank">Karl Broman</a> suggests to open R and type runif(1, 0, 10^8) and then paste the resulting large number into `set.seed()` in the first code chunk. If you do this, then the random aspects of your analysis should be repeated the same way.
 
 
 #### 6 Recommendations for reproducible research  
@@ -260,13 +260,13 @@ If there is any randomizations of data or simulations, use `set.seed()` in the f
 ***
 
 #### Do you have ...  
-1. [RStudio?](https://www.rstudio.com/products/rstudio/download/)  
-2. [R?](http://www.inside-r.org/download)  
+1. <a href="https://www.rstudio.com/products/rstudio/download/" target="_blank">RStudio?</a>  
+2. <a href="http://www.inside-r.org/download" target="_blank">R?</a>  
     + Please install these packages:  
         + `install.packages("knitr")`  
         + `install.packages("rmarkdown")` 
-3. A [GitHub](https://github.com/) account?  
-4. [Git?](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)  
+3. A <a href="https://github.com/" target="_blank">Github</a> account?  
+4. <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git" target="_blank">Git?</a>  
 
 You are good to go!
 
@@ -274,8 +274,8 @@ You are good to go!
 
 ## Using Git through RStudio  
 
-1.  Sign into [GitHub](https://github.com/).  
-2. [Initialize repo on the github page](http://angus.readthedocs.org/en/2015/CTB-github.html).  
+1.  Sign into <a href="https://github.com/" target="_blank">Github</a>.  
+2. <a href="http://angus.readthedocs.org/en/2015/CTB-github.html" target="_blank">Initialize repo on the github page</a>.  
     + Name the Repo "NGS_Reproducibility"  
 3. Open up RStudio  
 4. File -> New Project -> Version Control -> Git -> Copy and Paste the SSH clone URL.  
@@ -456,40 +456,42 @@ Click on the clock button to view your git history.  Here, you can also view the
 
 
 ## Challenge  
-#### Create an html output file with the analysis from the lesson on [Multivariate statistics By Ryan Williams](https://github.com/ngs-docs/angus/blob/2015/week3/visualizations/multivariate-tests/tests.md) using data from [Adina Howe's Lab](http://germslab.org/)  
-- If the link for Ryan William's lesson does not work, please try here: [https://github.com/ngs-docs/angus/blob/2015/week3/visualizations/multivariate-tests/tests.md](https://github.com/ngs-docs/angus/blob/2015/week3/visualizations/multivariate-tests/tests.md)
+#### Create an html output file with the analysis from the lesson on <a href="https://github.com/ngs-docs/angus/blob/2015/week3/visualizations/multivariate-tests/tests.md" target="_blank">Multivariate statistics By Ryan Williams</a> using data from <a href="http://germslab.org/" target="_blank">Adina Howe's Lab</a>. 
 
 
 
 ## Resources  
 ### Resources for Reproducible Research  
-- Vince Buffalo's [Bioinformatics Data Skills](http://www.amazon.com/Bioinformatics-Data-Skills-Reproducible-Research/dp/1449367372) book and it's helpful [github page](https://github.com/vsbuffalo/bds-files)  
+- Vince Buffalo's <a href="http://www.amazon.com/Bioinformatics-Data-Skills-Reproducible-Research/dp/1449367372" target="_blank">Bioinformatics Data Skills</a> book and it's helpful <a href="https://github.com/vsbuffalo/bds-files" target="_blank">github page.</a> 
     + Main source for this presentation.
-- A course by Karl Broman at the University of Wisconsin-Madison on [Reproducible Research.](http://kbroman.org/Tools4RR/)  
-- Reproducible-Science-Curriculum [Github repo for Reproducible Research Project Initialization](https://github.com/Reproducible-Science-Curriculum/rr-init)  
-- ROpenSci [Reproducibility Research](http://ropensci.github.io/reproducibility-guide/) guidelines  
+- A course by Karl Broman at the University of Wisconsin-Madison on <a href="http://kbroman.org/Tools4RR/" target="_blank">Reproducible Research.</a>  
+- Reproducible-Science-Curriculum <a href="https://github.com/Reproducible-Science-Curriculum/rr-init" target="_blank">Github repo for Reproducible Research Project Initialization</a>  
+- <a href="http://ropensci.github.io/reproducibility-guide/" target="_blank">ROpenSci Reproducibility Research</a> guidelines  
 - Publications:  
-    + [Best Practices for Scientific Computing](http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745) by Wilson et al., 2014  
-    + [Noble, 2009](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000424)  
-    + [Peng, 2011](http://www.sciencemag.org/content/334/6060/1226.abstract)  
-- [Stats Dept. Resources from U-Wisconsin](https://www.stat.wisc.edu/reproducible)  
-- "Baby steps for the open-curious" from [Christie Bahlai](https://practicaldatamanagement.wordpress.com/2014/10/23/baby-steps-for-the-open-curious/) 
+    + <a href="http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745" target="_blank">Best Practices for Scientific Computing</a> by Wilson et al., 2014.  
+    + <a href="http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000424" target="_blank">A Quick Guide to Organizing Computational Biology Projects</a> by Noble, 2009.  
+    + <a href="http://www.sciencemag.org/content/334/6060/1226.abstract" target="_blank">Reproducible Research in Computational Science</a> by Peng, 2011.  
+- <a href="https://www.stat.wisc.edu/reproducible" target="_blank">Statistics Department Resources from the University of Wisconsin</a>  
+- "Baby steps for the open-curious" from <a href="https://practicaldatamanagement.wordpress.com/2014/10/23/baby-steps-for-the-open-curious/" target="_blank">Christie Bahlai</a>  
 
 
 ### Resources for Rmarkdown, RStudio and R  
-- Yihui Xie's "[Dynamic Documents with R and Knitr](http://www.amazon.com/Dynamic-Documents-knitr-Chapman-Series/dp/1482203537)" and it's [github page](https://github.com/yihui/knitr-book/).  
-- Resources from Jennifer Bryan's [Stats 545](http://stat545-ubc.github.io/git00_index.html).  
-- [RMarkdown Quick Reference Guide](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf) - Christopher Gandrud's "[Reproducible Research with R and RStudio](http://www.amazon.com/Reproducible-Research-Studio-Chapman-Series/dp/1466572841)" and it's github page
-- [RStudio RMarkdown Documentation](http://rmarkdown.rstudio.com/)  
-- [Rmd Cheatsheet](http://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
-- [Knitr Reference Card](http://cran.r-project.org/web/packages/knitr/vignettes/knitr-refcard.pdf)  
-- [R Cookbook for ggplot](http://www.cookbook-r.com/Graphs/)
+- Yihui Xie's <a href="http://www.amazon.com/Dynamic-Documents-knitr-Chapman-Series/dp/1482203537" target="_blank">Dynamic Documents with R and Knitr</a> and it's <a href="https://github.com/yihui/knitr-book/" target="_blank">github page.</a>  
+- Resources from Jennifer Bryan's  <a href="http://stat545-ubc.github.io/git00_index.html" target="_blank">Stats 545</a>.  
+- <a href="https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf" target="_blank">RMarkdown Quick Reference Guide</a>  
+- Christopher Gandrud's <a href="http://www.amazon.com/Reproducible-Research-Studio-Chapman-Series/dp/1466572841" target="_blank">Reproducible Research with R and RStudio</a> and it's github page
+- <a href="http://rmarkdown.rstudio.com/" target="_blank">RStudio RMarkdown Documentation</a>  
+- <a href="http://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf" target="_blank">Rmd Cheatsheet</a>
+- <a href="http://cran.r-project.org/web/packages/knitr/vignettes/knitr-refcard.pdf" target="_blank">Knitr Reference Card</a>
+- <a href="http://www.cookbook-r.com/Graphs/" target="_blank">R Cookbook for ggplot</a>
   
   
 ### Other Resources  
-- [Software Carpentry Foundation](https://software-carpentry.org/)  
-- [Data Carpentry](http://datacarpentry.github.io/)  
-- [Power-Posing](http://www.ted.com/talks/amy_cuddy_your_body_language_shapes_who_you_are?language=en)
+- <a href="https://software-carpentry.org/" target="_blank">Software Carpentry Foundation</a>  
+- <a href="http://datacarpentry.github.io/" target="_blank">Data Carpentry</a>  
+- <a href="http://www.ted.com/talks/amy_cuddy_your_body_language_shapes_who_you_are?language=en" target="_blank">Power-Posing</a>
+
+
 
 ***
 
@@ -500,10 +502,10 @@ Click on the clock button to view your git history.  Here, you can also view the
     + To code in R  
     + Sharing Code  
     + Reproducible science  
-- PhD Candidate in the Department of Ecology and Evolutionary Biology at the University of Michigan in [Vincent Denef's Lab](http://www-personal.umich.edu/~vdenef/).  
+- PhD Candidate in the Department of Ecology and Evolutionary Biology at the University of Michigan in <a href="http://www-personal.umich.edu/~vdenef/" target="_blank">Vincent Denef's Lab</a>.  
 - I recently got involved in the Software Carpentry foundation.  
-- I'm a part of the U of M **FEMMES** (**F**emales **E**xcelling **M**ore in **Math** **E**nginnering and **S**cience) chapter.  FEMMES is a group that empowers 4-6th grade girls in STEM fields by holding after school science activities and a once-a-semester capstone "Day in the Lab" at U of M.  
-- I went to **Hampshire College** for undergrad and wrote my thesis on the [evolution of magnetotaxis in magnetotactic bacteria](http://www.ncbi.nlm.nih.gov/pubmed/22865076).  
+- I'm a part of the U of M <a href="http://femmes.studentorgs.umich.edu/" target="_blank">**FEMMES**</a> (**F**emales **E**xcelling **M**ore in **Math** **E**nginnering and **S**cience) chapter.  FEMMES is a group that empowers 4-6th grade girls in STEM fields by holding after school science activities and a once-a-semester capstone "Day in the Lab" at U of M.  
+- I went to **Hampshire College** for undergrad and wrote my thesis on the <a href="http://www.ncbi.nlm.nih.gov/pubmed/22865076" target="_blank">evolution of magnetotaxis in magnetotactic bacteria</a>.  
 - Next, I worked as a lab tech for a year studying the intracacies of sulfate-reducing bacteria.  
 - My dissertation is focused on the spatial and temporal distributions and activities of freshwater bacteria.  
     + Specifically, I work on the bacterial community composition of particle-associated (3-20 um) and free-living (0.22-3 um) bacteria within small inland lakes and in Lake Michigan.  
@@ -516,7 +518,7 @@ Click on the clock button to view your git history.  Here, you can also view the
 ***
 
 #### Session Info  
-[Karl Broman](http://kbroman.org/knitr_knutshell/pages/reproducible.html) recommends using the `session_info()` from the devtools package.
+<a href="http://kbroman.org/knitr_knutshell/pages/reproducible.html" target="_blank">Karl Broman</a> recommends using the `session_info()` from the devtools package.
 ```{r Presentation session_info, include=TRUE, echo=TRUE, results='markup'}
 devtools::session_info()
 ```
