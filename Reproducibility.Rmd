@@ -479,7 +479,7 @@ Click on the clock button to view your git history.  Here, you can also view the
 - Yihui Xie's <a href="http://www.amazon.com/Dynamic-Documents-knitr-Chapman-Series/dp/1482203537" target="_blank">Dynamic Documents with R and Knitr</a> and it's <a href="https://github.com/yihui/knitr-book/" target="_blank">github page.</a>  
 - Resources from Jennifer Bryan's  <a href="http://stat545-ubc.github.io/git00_index.html" target="_blank">Stats 545</a>.  
 - <a href="https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf" target="_blank">RMarkdown Quick Reference Guide</a>  
-- Christopher Gandrud's <a href="http://www.amazon.com/Reproducible-Research-Studio-Chapman-Series/dp/1466572841" target="_blank">Reproducible Research with R and RStudio</a> and it's github page
+- Christopher Gandrud's <a href="http://www.amazon.com/Reproducible-Research-Studio-Chapman-Series/dp/1466572841" target="_blank">Reproducible Research with R and RStudio</a> and it's <a href="https://github.com/christophergandrud/Rep-Res-Book" target="_blank">github page</a>  
 - <a href="http://rmarkdown.rstudio.com/" target="_blank">RStudio RMarkdown Documentation</a>  
 - <a href="http://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf" target="_blank">Rmd Cheatsheet</a>
 - <a href="http://cran.r-project.org/web/packages/knitr/vignettes/knitr-refcard.pdf" target="_blank">Knitr Reference Card</a>
