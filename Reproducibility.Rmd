@@ -267,6 +267,7 @@ If there is any randomizations of data or simulations, use `set.seed()` in the f
         + `install.packages("rmarkdown")` 
 3. A <a href="https://github.com/" target="_blank">Github</a> account?  
 4. <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git" target="_blank">Git?</a>  
+    + If you have not already, please generate an <a href="https://help.github.com/articles/generating-ssh-keys/" target="_blank">SSH key.</a>
 
 You are good to go!
 
@@ -277,9 +278,17 @@ You are good to go!
 1.  Sign into <a href="https://github.com/" target="_blank">Github</a>.  
 2. <a href="http://angus.readthedocs.org/en/2015/CTB-github.html" target="_blank">Initialize repo on the github page</a>.  
     + Name the Repo "NGS_Reproducibility"  
+    + Down in the right-hand corner, copy the SSH clone URL, do not copy the https url!   
 3. Open up RStudio  
-4. File -> New Project -> Version Control -> Git -> Copy and Paste the SSH clone URL.  
-    + Be sure to use the same repo name as on your github page!
+4. File -> New Project -> Version Control -> Git -> Paste the **SSH clone URL**.  
+    + Be sure to use the same repo name as on your github page!  
+    + If you get the following error, you may have copied the **HTTPS** clone URL instead of the **SSH** clone url.  
+```
+Cloning into 'repo_name'...
+error: unable to read askpass response from 'rpostback-askpass'
+fatal: could not read Username for 'https://github.com': Device not configured
+```
+
 
 ***
 

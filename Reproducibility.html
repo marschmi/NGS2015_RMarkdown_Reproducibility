@@ -427,7 +427,10 @@ img {
 </ul></li>
 </ul></li>
 <li>A <a href="https://github.com/" target="_blank">Github</a> account?<br /></li>
-<li><a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git" target="_blank">Git?</a></li>
+<li><a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git" target="_blank">Git?</a>
+<ul>
+<li>If you have not already, please generate an <a href="https://help.github.com/articles/generating-ssh-keys/" target="_blank">SSH key.</a></li>
+</ul></li>
 </ol>
 <p>You are good to go!</p>
 <hr />
@@ -441,11 +444,16 @@ img {
 <li><a href="http://angus.readthedocs.org/en/2015/CTB-github.html" target="_blank">Initialize repo on the github page</a>.
 <ul>
 <li>Name the Repo “NGS_Reproducibility”<br /></li>
+<li>Down in the right-hand corner, copy the SSH clone URL, do not copy the https url!<br /></li>
 </ul></li>
 <li>Open up RStudio<br /></li>
-<li>File -&gt; New Project -&gt; Version Control -&gt; Git -&gt; Copy and Paste the SSH clone URL.
+<li>File -&gt; New Project -&gt; Version Control -&gt; Git -&gt; Paste the <strong>SSH clone URL</strong>.
 <ul>
-<li>Be sure to use the same repo name as on your github page!</li>
+<li>Be sure to use the same repo name as on your github page!<br /></li>
+<li><p>If you get the following error, you may have copied the <strong>HTTPS</strong> clone URL instead of the <strong>SSH</strong> clone url.</p>
+<pre><code>Cloning into 'repo_name'...
+error: unable to read askpass response from 'rpostback-askpass'
+fatal: could not read Username for 'https://github.com': Device not configured</code></pre></li>
 </ul></li>
 </ol>
 <hr />
