@@ -497,7 +497,7 @@ library(ggplot2) # Make sure R knows to source from it
 
 ##  Plot 1:  Let's look at the distribution of the genome size
 ggplot(metadata) +
-  geom_bar(aes(x = genome_size), stat = "bin", binwidth=0.05)
+  geom_bar(aes(x = genome_size), stat = "bin", binwidth=0.01)
 
 # Plot 2:  Looking at all of the genome sizes for each strain
 ggplot(metadata) +
@@ -511,8 +511,8 @@ ggplot(metadata) +
   xlab('citrate mutant') +
   ylab('genome size') +
   theme(axis.text.x = element_text(angle=45, hjust=1),
-          axis.title = element_text(size = 1.5),
-          axis.text = element_text(size = 1.25))
+          axis.title = element_text(size = rel(1.5)),
+          axis.text = element_text(size = rel(1.25)))
 ```
 
 
