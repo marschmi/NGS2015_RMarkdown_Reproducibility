@@ -425,13 +425,13 @@ img {
 <li>A <a href="https://github.com/" target="_blank">Github</a> account?<br /></li>
 <li><a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git" target="_blank">Git?</a>
 <ul>
-<li>Let’s generate an SSH Key <a href="https://help.github.com/articles/generating-ssh-keys/" target="_blank">SSH key.</a>
+<li>We may need to generate an SSH Key <a href="https://help.github.com/articles/generating-ssh-keys/" target="_blank">SSH key.</a>
 <ul>
-<li>An <strong>SSH key</strong> is a way to identify a trusted computer without a password.</li>
+<li>An <strong>SSH key</strong> is a way to identify a trusted computer without a password.<br /></li>
+<li>We will come back to this if necessary.</li>
 </ul></li>
 </ul></li>
 </ol>
-<p>You are good to go!</p>
 <hr />
 </div>
 </div>
@@ -639,35 +639,57 @@ min(diamonds$price)</code></pre>
 <li>Working within your new R Project “Bioinformatics_Reproducibility”<br /></li>
 <li>Let’s create a new directory called “data”</li>
 <li>Download the <a href="http://tracykteal.github.io/R-genomics/02-starting-with-data.html">Ecoli_metadata.csv from Data Carpentry</a> into your data directory within your “Bioinformatics_reproducibility” repository.<br /></li>
-<li>Create a new RMarkdown file.<br /></li>
+<li>Create a new RMarkdown file within “Bioinformatics_Reproducibilty.<br /></li>
 <li>Time to start our project!</li>
 </ol>
 <p>For example we can learn from some of the <a href="http://tracykteal.github.io/R-genomics/">data carpentry lesson</a> written by Kate Hertweck, Susan McClatchey, Tracy Teal, and Ryan Williams:</p>
-<pre><code>metadata &lt;- read.csv('data/Ecoli_metadata.csv') # Load in the data from the data directory!
+<pre><code>runif(1, 0, 10^8) # Generate a random number 
+
+#############  First Code chunk - setting the seed
+## {r Set the seed, include=TRUE, echo=TRUE, eval = TRUE}
+set.seed() # Insert your random number here - NOTE:  Only do this once when you are initalizing your file!
+## end chunk 1
+
+#############  Second Code Chunk - reading in the data
+## {r Import Data, echo = TRUE, eval = TRUE}
+metadata &lt;- read.csv('data/Ecoli_metadata.csv') # Load in the data from the data directory!
 head(metadata) # This will show us the first 6 rows of the dataframe
 str(metadata) # This will show us the structure of the data
+mean(metadata$genome_size) # Calculate the mean genome_size
+## end chunk 2
 
+#############  Third Chunk - Install and load necessary packages
+## {r package import, echo = TRUE, eval = TRUE}
 install.packages(&quot;ggplot2&quot;) # Install the best plotting package in R
 library(ggplot2) # Make sure R knows to source from it
+## end chunk 3
 
+#############  Fourth Chunk - Create some plots!
+## {r data exploration, echo = TRUE, eval = TRUE, fig.center = TRUE}
 ##  Plot 1:  Let's look at the distribution of the genome size
-ggplot(metadata) +
-  geom_bar(aes(x = genome_size), stat = &quot;bin&quot;, binwidth=0.01)
+ggplot(metadata, aes(x = genome_size)) +
+  geom_bar(stat = &quot;bin&quot;, binwidth=0.01) # create a bar plot (histogram) with bins by a genome size of 0.01
 
 # Plot 2:  Looking at all of the genome sizes for each strain
-ggplot(metadata) +
-  geom_point(aes(x = sample, y= genome_size, color = generation, shape = cit), size = rel(3.0)) +
-  theme(axis.text.x = element_text(angle=45, hjust=1))
+ggplot(metadata, aes(x = sample, y= genome_size, color = generation, shape = cit)) +
+  geom_point(size = rel(3.0)) + # we are going to make points
+  theme(axis.text.x = element_text(angle=45, hjust=1)) # x-axis text on a 45 degree angle 
   
 # Plot 3: Taking the average genome size for the types of E.coli mutants
-ggplot(metadata) +
-  geom_boxplot(aes(x = cit, y = genome_size, fill = cit)) +
-  ggtitle('Boxplot of genome size by citrate mutant type') +
-  xlab('citrate mutant') +
-  ylab('genome size') +
-  theme(axis.text.x = element_text(angle=45, hjust=1),
-          axis.title = element_text(size = rel(1.5)),
-          axis.text = element_text(size = rel(1.25)))</code></pre>
+ggplot(metadata, aes(x = cit, y = genome_size, fill = cit)) + # plot time 
+  geom_boxplot() + # make it a boxplot
+  ggtitle('Boxplot of genome size by citrate mutant type') + #add a title
+  xlab('citrate mutant') + # add x axis label
+  ylab('genome size') + #add y axis label
+  theme(axis.text.x = element_text(angle=45, hjust=1), # put x axis text on a 45 degree angle
+          axis.title = element_text(size = rel(1.5)), #make the relative size of the axis title text
+          axis.text = element_text(size = rel(1.25))) #make the relative size of the axis text
+## end chunk 4
+          
+#############  Final Chunk 5         
+# {r Presentation session_info, include=TRUE, echo=TRUE, results='markup'}
+devtools::session_info() # This will include session info
+## end chunk 5</code></pre>
 <hr />
 </div>
 <div id="resources" class="section level2">
