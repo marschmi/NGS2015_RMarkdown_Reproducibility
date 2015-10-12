@@ -269,7 +269,6 @@ If there is any randomizations of data or simulations, use `set.seed()` in the f
 3. A <a href="https://github.com/" target="_blank">Github</a> account?  
 4. <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git" target="_blank">Git?</a>  
     + Let's generate an SSH Key <a href="https://help.github.com/articles/generating-ssh-keys/" target="_blank">SSH key.</a>  
-          + It is necessary to have an SSH key.  Please follow all steps.  
           + An **SSH key** is a way to identify a trusted computer without a password.
 
 You are good to go!
@@ -339,7 +338,7 @@ A convenient tool for reproducible and dynamic reports with R!
 
 
 #### Choose Output
-**YAML Header:**  A set of key value pairs at the start of your file.  Begin and end the header with a line of three dashes (---)
+**YAML Header:**  A set of key value pairs at the start of your file.  Begin and end the header with a line of three dashes (- - -)
 
 ***R Studio template writes the YAML header for you***  
 
@@ -353,9 +352,9 @@ output: ioslides_presentation (ioslides presentation - html)
 ```
 ---
 title: "Reproducible Research Using RMarkdown and Git through RStudio"
-subtitle: "Tutorial for NGS Workshop Week 3"
+subtitle: "Tutorial for EEB 416 - Intro to Bioinformatics"
 author: "Marian L. Schmidt, @micro_marian, marschmi@umich.edu"
-date: "August 25, 2015"
+date: "October 12th, 2015"
 output:
   html_document:
     theme: united
@@ -368,7 +367,8 @@ Markdown is a simple formatting language that is easy to use
 
 - Create lists with `*` or `+` sign   
       + like this
-      + and this
+      + and this  
+      + **A very important note:**  The end of a line is marked by two spaces and an enter!!  Otherwise your list will look ugly like the one below: 
 - Use one or two asterisk marks to provide emphasis such as `*`*italics*`*` and `**`**bold**`**`.  Can even include tables:    
 
 First Header  | Second Header
@@ -459,7 +459,7 @@ When you render, R will:
 
 -  Save the output file in your working directory.  
 
-
+*** 
 
 ## A Git Workflow within RStudio
 
@@ -476,11 +476,47 @@ When you render, R will:
 
 Click on the clock button to view your git history.  Here, you can also view the difference between documents.  
 
+***
 
-## Challenge  
-#### Create an html output file with the analysis from the lesson on <a href="https://github.com/ngs-docs/angus/blob/2015/week3/visualizations/multivariate-tests/tests.md" target="_blank">Multivariate statistics By Ryan Williams</a> using data from <a href="http://germslab.org/" target="_blank">Adina Howe's Lab</a>. 
+## Challenge 
+1. Working within your new R Project "Bioinformatics_Reproducibility"  
+2. Let's create a new directory called "data"
+3. Download the <a href="http://tracykteal.github.io/R-genomics/02-starting-with-data.html">Ecoli_metadata.csv from Data Carpentry</a> into your data directory within your "Bioinformatics_reproducibility" repository.  
+4. Create a new RMarkdown file.  
+5. Time to start our project!
+
+For example we can learn from some of the <a href="http://tracykteal.github.io/R-genomics/">data carpentry lesson</a> written by Kate Hertweck, Susan McClatchey, Tracy Teal, and Ryan Williams:
+
+```
+metadata <- read.csv('data/Ecoli_metadata.csv') # Load in the data from the data directory!
+head(metadata) # This will show us the first 6 rows of the dataframe
+str(metadata) # This will show us the structure of the data
+
+install.packages("ggplot2") # Install the best plotting package in R
+library(ggplot2) # Make sure R knows to source from it
+
+##  Plot 1:  Let's look at the distribution of the genome size
+ggplot(metadata) +
+  geom_bar(aes(x = genome_size), stat = "bin", binwidth=0.05)
+
+# Plot 2:  Looking at all of the genome sizes for each strain
+ggplot(metadata) +
+  geom_point(aes(x = sample, y= genome_size, color = generation, shape = cit), size = rel(3.0)) +
+  theme(axis.text.x = element_text(angle=45, hjust=1))
+  
+# Plot 3: Taking the average genome size for the types of E.coli mutants
+ggplot(metadata) +
+  geom_boxplot(aes(x = cit, y = genome_size, fill = cit)) +
+  ggtitle('Boxplot of genome size by citrate mutant type') +
+  xlab('citrate mutant') +
+  ylab('genome size') +
+  theme(axis.text.x = element_text(angle=45, hjust=1),
+          axis.title = element_text(size = 1.5),
+          axis.text = element_text(size = 1.25))
+```
 
 
+***
 
 ## Resources  
 ### Resources for Reproducible Research  
@@ -513,29 +549,6 @@ Click on the clock button to view your git history.  Here, you can also view the
 - <a href="http://datacarpentry.github.io/" target="_blank">Data Carpentry</a>  
 - <a href="http://www.ted.com/talks/amy_cuddy_your_body_language_shapes_who_you_are?language=en" target="_blank">Power-Posing</a>
 
-
-
-***
-
-## About Me
-- **Twitter:** @micro_marian  
-- **e-mail:** marschmi@umich.edu
-- I'm a native Michigander who likes:  
-    + To code in R  
-    + Sharing Code  
-    + Reproducible science  
-- PhD Candidate in the Department of Ecology and Evolutionary Biology at the University of Michigan in <a href="http://www-personal.umich.edu/~vdenef/" target="_blank">Vincent Denef's Lab</a>.  
-- I recently got involved in the Software Carpentry foundation.  
-- I'm a part of the U of M <a href="http://femmes.studentorgs.umich.edu/" target="_blank">**FEMMES**</a> (**F**emales **E**xcelling **M**ore in **Math** **E**nginnering and **S**cience) chapter.  FEMMES is a group that empowers 4-6th grade girls in STEM fields by holding after school science activities and a once-a-semester capstone "Day in the Lab" at U of M.  
-- I went to **Hampshire College** for undergrad and wrote my thesis on the <a href="http://www.ncbi.nlm.nih.gov/pubmed/22865076" target="_blank">evolution of magnetotaxis in magnetotactic bacteria</a>.  
-- Next, I worked as a lab tech for a year studying the intracacies of sulfate-reducing bacteria.  
-- My dissertation is focused on the spatial and temporal distributions and activities of freshwater bacteria.  
-    + Specifically, I work on the bacterial community composition of particle-associated (3-20 um) and free-living (0.22-3 um) bacteria within small inland lakes and in Lake Michigan.  
-    + So far I have been using 16S rRNA amplicon data at the DNA-level. In the future, I hope to look at functional differences between the particle-associated and free-living bacterial fractions by using metatranscriptomics.
-- I get to work in this beautiful place...  
-![](Figures/LakeMichigan.jpeg)  
-- When I'm not doing science-y things, you can find me here:  
-![](Figures/climbing2.jpg) 
 
 ***
 
