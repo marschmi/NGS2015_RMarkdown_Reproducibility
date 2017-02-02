@@ -1,6 +1,6 @@
 ---
 title: "Introductory Version Control with Git"
-subtitle: "Greg Dick's Earth 523 Class"
+subtitle: "Earth 523 - Metagenomics"
 author: "Marian L. Schmidt, @micro_marian, marschmi@umich.edu"
 date: "February 2nd, 2017"
 output:
@@ -52,41 +52,34 @@ output:
 - Scientists in the United States spend <a href="http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002165" target="_blank">$28 billion</a> each year on basic biomedical research that cannot be repeated successfully  
 - A reproducibility study in psychology found that only <a href="http://www.nature.com/news/first-results-from-psychology-s-largest-reproducibility-test-1.17433" target="_blank">39 of 100 studies could be reproduced.</a>  
     + A quote: *“A lot of working scientists assume that if it’s published, it’s right... This makes it hard to dismiss that there are still a lot of false positives in the literature.”*  
-    + <a href="http://www.theatlantic.com/health/archive/2015/08/psychology-studies-reliability-reproducability-nosek/402466/" target="_blank">Recent Atlantic Article by Ed Yong summarizing the project</a>  
+    + <a href="http://www.theatlantic.com/health/archive/2015/08/psychology-studies-reliability-reproducability-nosek/402466/" target="_blank">An Atlantic Article by Ed Yong summarizing the project</a>  
 - The Journal *Nature* on the <a href="http://www.nature.com/news/reproducibility-1.17552#/" target="_blank">issue of reproducibility</a>  
     + A comment from the journal *Nature*: "Nature and the Nature research journals will introduce editorial measures to address the problem by improving the consistency and quality of reporting in life-sciences articles... **we will give more space to methods sections. We will examine statistics more closely and encourage authors to be transparent, for example by including their raw data.**"  
-    + Nature also released a <a href="http://www.nature.com/authors/policies/checklist.pdf" target="_blank">checklist</a> with an albeit *wimpy* computational check *(see #18)*.  
-            + This talk will hopefully help all of us improve this step.  
+    + Nature also released a <a href="http://www.nature.com/authors/policies/checklist.pdf" target="_blank">checklist</a> with an albeit *wimpy* computational check *(see #18)*. *This talk will help us **improve** this step.*  
     + In May 2016, Nature <a href="http://www.nature.com/news/1-500-scientists-lift-the-lid-on-reproducibility-1.19970" target="_blank">surveyed 1,500 scientists</a>  on their thoughts on reproducibility.  
 - The Economist in 2013 published on <a href="http://www.economist.com/news/briefing/21588057-scientists-think-science-self-correcting-alarming-degree-it-not-trouble" target="_blank">Trouble at the lab</a>
 
 
 
 # How to replicate this figure?
-![](Figures/try.png)
-
-### To replicate this figure 1, we need...  
-- Sequencing data!
-- All other data (i.e. where in the water column it was sampled, particle-association, which lake, nutrient profile, mixing status)  
-- The code!  Which should be:  
-    + Easily read-able  
-    + Very well commented and documented.  
-          + Using set.seed! 
-    + How to calculate:  
-        + Observed richness?  
-        + Simpson's Evenness?  
-- The versions of the software and packages/libraries used  
-
-### Could I replicate Figure 1 from your last publication, grant proposal, or presentation?  
-If not, what would **you and your co-authors** need to provide or do so I could replicate Figure 1 from your last publication?
+![](Figures/log2_dna_rna_phylum.png)
 
 
+## Could I replicate *your* Figure 1?  
+Could I replicate your Figure 1 from your last publication, grant proposal, or presentation?  
+
+If not, what would **you and your co-authors** need to provide/do so **I** could replicate your figure 1?
 
 
-As scientists, it should be our goal to perform **robust** and **reproducible** research.
+# Our Goal: **Robust** and **Reproducible** research.
 
-- "**Robust research** is about doing small things that stack the deck in your favor to prevent mistakes." *~Vince Buffalo*
-- **Reproducible research** may be repeated by other researchers with the same results. 
+## Robust Research   
+
+"**Robust research** is about doing small things that stack the deck in your favor to prevent mistakes." *~Vince Buffalo*  
+
+##  Reproducible Research
+
+**Reproducible research** may be repeated by other researchers with the same results. 
 
 ### Reproducibility can be difficult with genomic data.  
 1. Genomics data is too large and high dimensional to easily inspect or visualize.  Usually, workflows involve multiple steps and it's not feasible to inspect every step.  
@@ -119,7 +112,8 @@ Yeah, it takes a lot of effort to be robust and reproducible.  However, *it will
 - You can make modularized parts of the project into re-useable tools for the future.  
 - Reproducibility makes you easier to work and collaborate with.  
 
-***
+
+
 ## Some Recommendations
 
 ### 5 Recommendations for Robust Research  
