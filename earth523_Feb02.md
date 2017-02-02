@@ -1,6 +1,6 @@
 # Introductory Version Control with Git
 Marian L. Schmidt, @micro_marian, marschmi@umich.edu  
-February 2ndn 2017  
+February 2nd, 2017  
 
 # **Agenda**  
 
@@ -17,7 +17,7 @@ February 2ndn 2017
 
 ***
 
-## Key Resources Used to Build this lesson
+## Resources used to build this lesson
 - Vince Buffalo's <a href="http://www.amazon.com/Bioinformatics-Data-Skills-Reproducible-Research/dp/1449367372" target="_blank">Bioinformatics Data Skills</a> book and it's helpful <a href="https://github.com/vsbuffalo/bds-files" target="_blank">github page.</a>
     + Main source for this presentation.
 - A course by Karl Broman at the University of Wisconsin-Madison on <a href="http://kbroman.org/Tools4RR/" target="_blank">Reproducible Research.</a>  
@@ -32,7 +32,6 @@ February 2ndn 2017
 - Github for <a href="https://github.com/marschmi/NGS2015_RMarkdown_Reproducibility" target="_blank">this website</a>  
 
 
-***
 
 # We scientists have a few problems  
 - The <a href="http://fivethirtyeight.com/datalab/as-a-major-retraction-shows-were-all-vulnerable-to-faked-data/" target="_blank">LaCour Scandal</a> of fabricated data published in *Science*.  
@@ -43,11 +42,11 @@ February 2ndn 2017
 - The Journal *Nature* on the <a href="http://www.nature.com/news/reproducibility-1.17552#/" target="_blank">issue of reproducibility</a>  
     + A comment from the journal *Nature*: "Nature and the Nature research journals will introduce editorial measures to address the problem by improving the consistency and quality of reporting in life-sciences articles... **we will give more space to methods sections. We will examine statistics more closely and encourage authors to be transparent, for example by including their raw data.**"  
     + Nature also released a <a href="http://www.nature.com/authors/policies/checklist.pdf" target="_blank">checklist</a> with an albeit *wimpy* computational check *(see #18)*.  
-        + This talk will hopefully help all of us improve this step.  
+            + This talk will hopefully help all of us improve this step.  
+    + In May 2016, Nature <a href="http://www.nature.com/news/1-500-scientists-lift-the-lid-on-reproducibility-1.19970" target="_blank">surveyed 1,500 scientists</a>  on their thoughts on reproducibility.  
 - The Economist in 2013 published on <a href="http://www.economist.com/news/briefing/21588057-scientists-think-science-self-correcting-alarming-degree-it-not-trouble" target="_blank">Trouble at the lab</a>
 
 
-***
 
 # How to replicate this figure?
 ![](Figures/try.png)
@@ -68,9 +67,9 @@ February 2ndn 2017
 If not, what would **you and your co-authors** need to provide or do so I could replicate Figure 1 from your last publication?
 
 
-***
 
-## As scientists, it should be our goal to perform **robust** and **reproducible** research.
+
+As scientists, it should be our goal to perform **robust** and **reproducible** research.
 
 - "**Robust research** is about doing small things that stack the deck in your favor to prevent mistakes." *~Vince Buffalo*
 - **Reproducible research** may be repeated by other researchers with the same results. 
