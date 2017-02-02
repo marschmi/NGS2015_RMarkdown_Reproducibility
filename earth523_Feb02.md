@@ -2,6 +2,18 @@
 Marian L. Schmidt, @micro_marian, marschmi@umich.edu  
 February 2nd, 2017  
 
+#### Do you have ...  
+1. <a href="https://www.rstudio.com/products/rstudio/download/" target="_blank">RStudio?</a>  
+2. <a href="http://www.inside-r.org/download" target="_blank">R?</a>  
+    + Please install these packages:  
+        + `install.packages("knitr")`  
+        + `install.packages("rmarkdown")`  
+        + `install.packages("ggplot2")` 
+3. A <a href="https://github.com/" target="_blank">Github</a> account?  
+4. <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git" target="_blank">Git?</a>  
+
+
+
 # **Agenda**  
 
 1. What is **robust and reproducible research**?  
@@ -31,6 +43,10 @@ February 2nd, 2017
     + A <a href="http://ivory.idyll.org/blog/tag/ngs-course.html" target="_blank">blog post from Titus</a> synthesizing the third week of the course.  
 - Github for <a href="https://github.com/marschmi/NGS2015_RMarkdown_Reproducibility" target="_blank">this website</a>  
 
+- The main page for the core lessons from the Software Carpentry Foundation can be found at <a href="http://software-carpentry.org/lessons/" target="_blank">http://software-carpentry.org/lessons/</a>.  
+    + The `git` lesson here is heavily based on Software Carpentry's core curriculum on git entitled **"Version Control with Git"** and is maintained by Ivan Gonzalez and Daisie Huang.  
+    + The main lesson link can be found at <a href="http://swcarpentry.github.io//git-novice/" target="_blank">http://swcarpentry.github.io//git-novice/</a>   
+
 
 
 # We scientists have a few problems  
@@ -57,17 +73,28 @@ Could I replicate your Figure 1 from your last publication, grant proposal, or p
 If not, what would **you and your co-authors** need to provide/do so **I** could replicate your figure 1?
 
 
-# Our Goal: **Robust** and **Reproducible** research.
+# Our Goal: **Robust** and **Reproducible** research
 
 ## Robust Research   
 
 "**Robust research** is about doing small things that stack the deck in your favor to prevent mistakes." *~Vince Buffalo*  
 
+**Robust:** strong and healthy; vigorous (*adjective*)  
+
+How can we make our research strong, healthy and vigorous?  
+
+  - Prevent mistakes  
+  - Make sure we test our models under various conditions to check that we obtain the same result 
+
 ##  Reproducible Research
 
-**Reproducible research** may be repeated by other researchers with the same results. 
+**Reproduce:** produce again (*verb*)
 
-### Reproducibility can be difficult with genomic data.  
+**Reproducible:** able to be reproduced or copied (*adjective*)  
+
+So, reproducible research may be repeated by other researchers with the same results. 
+
+### The difficulty with genomic data.  
 1. Genomics data is too large and high dimensional to easily inspect or visualize.  Usually, workflows involve multiple steps and it's not feasible to inspect every step.  
 2. Unlike in the wet lab, we don't always know what to expect of our genomics data analysis.  
 3. It's difficult to distinguish *good* from *bad* results.  
@@ -80,7 +107,7 @@ If not, what would **you and your co-authors** need to provide/do so **I** could
 - **Work must be well documented!  Methods, code, and data must be made available to others!**  
 - Adopt a cautious attitude and *check everything*.    
     + Vince Buffalo's golden rule of bioinformatics:  "Never ever trust your tools (or data)"  
-    + Remember, "garbage in, garbage out" - an analysis is only as good as the data going in.  
+    + "Garbage in, garbage out" - an analysis is only as good as the data going in.  
     + Let the data prove that it is high quality.
 - **Take the time to develop fequently used scripts into tools.**  
     + Then have your lab mates or collaborators test them and try to break them.  
@@ -91,7 +118,7 @@ If not, what would **you and your co-authors** need to provide/do so **I** could
 
 
 ### What's the benefit for **_you?_**  
-Yeah, it takes a lot of effort to be robust and reproducible.  However, *it will make your life (and science) easier!*  
+It takes a lot of effort to be robust and reproducible.  However, *it will make your life (and science) easier!*  
 
 - Most likely, you will have to re-run your analysis more than once.  
 - In the future, you or a collaborator may have to re-visit part of the project.  
@@ -99,12 +126,18 @@ Yeah, it takes a lot of effort to be robust and reproducible.  However, *it will
 - Reproducibility makes you easier to work and collaborate with.  
 
 
+***
 
-## Some Recommendations
+# 5 Steps for Robust Research  
 
-### 5 Recommendations for Robust Research  
+1. Write code for humans, write data for computers 
+2. Make incremental changes.
+3. Make assertions and be loud, in code and in your methods  
+4. Use existing libraries (packages) whenever possible  
+5. Prevent catastrophe and help reproducibility by making your data **read-only** 
 
-#### 1a. Write code for humans
+
+## 1a. Write code for humans
 
 **Code readability is very important.**  
 
@@ -123,7 +156,8 @@ If your code is more readable, then:
 - It's easier to find and correct bugs.  
 - You will be your friend in the future when you revisit the code.
 
-#### 1b. Write data for computers
+
+## 1b. Write data for computers
 
 **Let your computer do the work for you**  
 Format your data so its easily read by your computer, not by you or other humans.  
@@ -132,7 +166,7 @@ Format your data so its easily read by your computer, not by you or other humans
 - Name data files in a consistent way.  
     + Automating tasks will be easier, which will prevent you from making trivial mistakes.
 
-#### 2. Make incremental changes.  
+## 2. Make incremental changes.  
 - Work in small steps with frequent feedback.  
     + Have a friend or labmate test your code and try to break it.  
     + Challenge your PI to test your code!
@@ -140,7 +174,7 @@ Format your data so its easily read by your computer, not by you or other humans
 - Put all manual changes under version control, too! 
 
 
-#### 3. Be a "Defensive Programmer" - Make Assertions  
+## 3. Be a "Defensive Programmer" - Make Assertions  
 Add tests within your code to make sure your code is doing what it is supposed to do.  
 
 Assertions are statments that something holds true.  Assertions:  
@@ -151,42 +185,36 @@ Assertions are statments that something holds true.  Assertions:
     + The `testthat` package is made for this!  Check it out the <a href="http://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf" target="_blank">testthat package here</a>  
 - In python you can use `assert()`
 
-#### 4. Use existing libraries (packages) whenever possible  
+## 4. Use existing libraries (packages) whenever possible  
 - Do not try to re-invent the wheel while your performing your data anaylsis.  
 - Use functions that have already been written and tested for you.
 
-#### 5. Prevent catastrophe and help reproducibility by making your data **read-only**
+## 5. Prevent catastrophe and help reproducibility by making your data **read-only**
 Read-only is important because:  
 
 - Modifying data can corrupt your results.    
 - It's easy to lose track of how you have changed a file when you modify it in place.  
 
 
-
-#### 5 Recommendations for Robust Research  
-1. Write code for humans, write data for computers 
-2. Make incremental changes.
-3. Make assertions and be loud, in code and in your methods  
-4. Use existing libraries (packages) whenever possible  
-5. Prevent catastrophe and help reproducibility by making your data **read-only** 
-
-
-
-
-
-
 ***
 
-### 6 Recommendations for reproducible research  
+# 6 Steps for reproducible research  
+
+1. Encapsulate the full project into one directory that is supported with version control.  
+2. Release your code and data.  
+3. Document everything and use code as documentation!
+4. Make figures, tables, and statistics the results of scripts.  
+5. Write code that uses relative paths.  
+6. Always set your seed.  
 
 
-#### 1. Encapsulate the full project into one directory that is supported with version control.  
+## 1. Encapsulate the full project into one directory that is supported with version control.  
 The **Reproducible-Science-Curriculum** <a href="https://github.com/Reproducible-Science-Curriculum/rr-init" target="_blank">Github repo for Reproducible Research Project Initialization</a> is a great place to start a reproducible research project.  
 
-#### 2. Release your code and data
+## 2. Release your code and data
 It is simple.  Without your code and data, your research is not reproducible.
 
-#### 3. Document everything!   
+## 3. Document everything!   
 **Bottom line:  Adopt a computing notebook that is as good as a wet-lab notebook**.
 
 To fully reproduce a study, each step of analysis must be described in much more detail than can be included in a publication.
@@ -195,7 +223,7 @@ Include a record of your steps, where files are, where they came from, and what 
 
 Include `session_info()` in your document, preferably at the bottom. Session info lists the version of R that you’re using plus all of the packages you’ve loaded. 
 
-#### In your computing notebook:  
+## In your computing notebook:  
 
 - Document your methods and workflows  
 - Document the origin of all data in your project directory  
@@ -206,100 +234,40 @@ Include `session_info()` in your document, preferably at the bottom. Session inf
 For example, all the above information could be stored in a *README* file 
 
 
-#### 4. Make figures, tables, and statistics the results of scripts.
+## 4. Make figures, tables, and statistics the results of scripts.
 
 Using `inline code` can make the creation of tables much easier if the data changes!
 
-#### 5. Write code that uses relative paths.
+## 5. Write code that uses relative paths.
 
 Do not rely on hard-coded absolute paths (i.e. /Users/marschmi/Data/seq-data.csv or even ~/Data/seq-data.csv).  
 
 Relative paths (i.e. Data/seq-data.csv) or command line arguments are better alternatives.
 
-#### 6. Always Set your seed  
+## 6. Always Set your seed  
 
 If there is any randomizations of data or simulations, use `set.seed()` in the first code chunk.
 
 <a href="http://kbroman.org/knitr_knutshell/pages/reproducible.html" target="_blank">Karl Broman</a> suggests to open R and type runif(1, 0, 10^8) and then paste the resulting large number into `set.seed()` in the first code chunk. If you do this, then the random aspects of your analysis should be repeated the same way.
 
 
-#### 6 Recommendations for reproducible research  
-1. Encapsulate the full project into one directory that is supported with version control.  
-2. Release your code and data.  
-3. Document everything and use code as documentation!
-4. Make figures, tables, and statistics the results of scripts.  
-5. Write code that uses relative paths.  
-6. Always Set your seed.  
+
 
 ***
 
 #### How can you revise your work flow?  
 
-- Where you can introduce **robust** steps?  
-- Where can you add **reproducible** steps?
-
-
-***
-
-#### Do you have ...  
-1. <a href="https://www.rstudio.com/products/rstudio/download/" target="_blank">RStudio?</a>  
-2. <a href="http://www.inside-r.org/download" target="_blank">R?</a>  
-    + Please install these packages:  
-        + `install.packages("knitr")`  
-        + `install.packages("rmarkdown")` 
-3. A <a href="https://github.com/" target="_blank">Github</a> account?  
-4. <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git" target="_blank">Git?</a>  
-    + We may need to generate an SSH Key <a href="https://help.github.com/articles/generating-ssh-keys/" target="_blank">SSH key.</a>  
-          + An **SSH key** is a way to identify a trusted computer without a password.  
-          + We will come back to this if necessary.
-
-
-
-
-
-***
-> **Warm up discussion:**  
 > 1. How do you currently keep track of versions of the same document for **(1) data analysis** and **(2) writing a paper/grant proposal**?  
 > 2. When working with a collaborator simultaneously, how do you keep track of versions of the same document?
 
 ***
 
-# Before We Start 
-The main page for the core lessons from the Software Carpentry Foundation can be found at <a href="http://software-carpentry.org/lessons/" target="_blank">http://software-carpentry.org/lessons/</a>  
 
-The lesson here is based on Software Carpentry's core curriculum on git entitled **"Version Control with Git"** and is maintained by Ivan Gonzalez and Daisie Huang.  
+# A scenario  
+Months ago, you submitted a scientific paper to a journal for publication and you’ve finally received your reviews back. The reviewers give your paper *minor revisions* and suggest that you **modify one of the first steps** in your data analysis and therefore re-create **every figure.** 
 
-The main lesson link can be found at <a href="http://swcarpentry.github.io//git-novice/" target="_blank">http://swcarpentry.github.io//git-novice/</a>   
+The deadline for the reviews is quickly approaching and you do not have much time.  How do you stack the cards in your favor?
 
-
-  
-# The scenario  
-Months ago, you submitted a scientific paper to a journal for publication and you’ve finally received your reviews back. The deadline for the reviews is quickly approaching and you are working with your collaborators to make the deadline.
-
-As the first author, you are re-running analyses in R and working with your collaborators on re-writing the paper as per the reviewers comments. For the written document, you’re quickly passing a word documentment back and forth and trying to keep up with each other to meet the deadline. In the midst of all of the changes to the document, a paragraph of the results is lost. Which version of the word document was it in? Which version of your code file were those analyses in?
-
-In this moment you are reminded of a time when you attended a Software Carpentry Workshop in January 2017.  It was a busy time during the workshop and adjusting to the start of another semester.  However, there was one thing you learned **always commit your changes to your GitHub repo with a meaningful commit.**  Since you've followed this principle during this process, you know you can rely on your commits and version control for finding those results!
-
-But how?
-  
-## Some Key Words
-  
-### Version Control
-
-*Version control* is a tool for managing changes to a set of files. Each set of changes creates a new *commit* of the files; the version control system allows users to recover old *commits* reliably, and helps manage conflicting changes made by different users.
-
-### Commit
-
-A *commit* records the current state of a set of files (a group of changes) in a *version control repository*. As a noun, the result of commiting, i.e. a recorded group of changes in a repository. If a *commit* contains changes to multiple files, all of the changes are recorded together.
- 
-
-### Version Control Repository
-
-A *version control repository* is a storage area where a version control system stores the full history of commits of a project and information about who changed what, when.  
-
-### Merge  
-
-Multiple versions of a document can be *merged* into one.  
 
 
 # Why version control?
@@ -326,9 +294,6 @@ Examples from my own research: <a href="https://github.com/marschmi" target="_bl
 > Go to the original Software Carpentry lesson on **automated version control**: <a href="http://swcarpentry.github.io/git-novice/01-basics/" target="_blank">http://swcarpentry.github.io/git-novice/01-basics/</a>  
 
 
-# Remembering the Unix Shell
-
-**A note on the shell and why it is important:**  It's like the air traffic control tower - allowing airlines from all over the globe to work together to get people around.  In this case, bash is directly talking to your computer through unix shell commands to run many programs.  If you need to run multiple programs at once an efficient way to do it automatically is to use the shell.  Here we will the shell to simultaneously run nano, git, unix, and R!  
 
 # Configuring Git  
 
@@ -337,7 +302,6 @@ Examples from my own research: <a href="https://github.com/marschmi" target="_bl
 > 2. `git config`
 
 > Now, let's set up Git by going to <a href="http://swcarpentry.github.io/git-novice/02-setup/" target="_blank">http://swcarpentry.github.io/git-novice/02-setup/</a>
-
 
 
 # Create a Local Repository
@@ -353,12 +317,12 @@ A **local** repository means that we are creating respository on our own compute
 
 > 1. In the shell, navigate to your **home directory** and create a new directory called `git_repos`.
 > 2. `cd` into the `git_repos` folder.  
-> 3. In the **`git_repos`** folder, make another new directory called `swc_workshop`.  
-> 4. `cd` into `swc_workshop`.  
-> 5. Type `ls -a`.  
+> 3. In the **`git_repos`** folder, make another new directory called `earth_523`.  
+> 4. `cd` into `earth_523`.  
+> 5. Type `ls -aF`.  
 > 6. What files do you see?
 > 7. Now, **initialize the repository** by typing `git init`.  
-> 8. What files do you see now that **`swc_workshop`** is a repository under version control?  
+> 8. What files do you see now that **`earth_523`** is a repository under version control?  
 > 9. To check that everything is set up correctly by asking git to tell us the status of our project, type `git status`.  
 
 
@@ -370,66 +334,14 @@ A **local** repository means that we are creating respository on our own compute
 - Explain where information is stored at each stage of Git commit workflow.
 
 
-> 1. **Copy** the `gapminder_analysis.R` file **and* the `gapminder-FiveYearData.csv`from yesterday's R lesson.  
-> 2. Take a look at the `gapminder_analysis.R` file by typing `less gapminder_analysis.R` into the shell.  Take a look at `gapminder-FiveYearData.csv` by using `head -n 10 gapminder-FiveYearData.csv`
-> 3. Type `git status`.  What does git tell us now?  
-> 4. So far the changes are "untracked" with git.  Now we need to tell git to keep track of the changes we have made - in other words, it's time for the first commit!  
-> 5. `git add gapminder_analysis.R` and `git status`.  What happened?  
-> 6. `git add gapminder-FiveYearData.csv` and `git status`.
-> 7. What happened?  
+> 1. `nano README.md` (or `notepadd README.md` or `npp README.md`)  
+> 2. Write down the author, date  
+> 3. Click <a href="https://en.support.wordpress.com/markdown-quick-reference/" target="_blank">here</a> for help with markdown language syntax.  
+> 4. `git status`  
 
-Git now knows that it’s supposed to keep track of `gapminder_analysis.R` and `git add gapminder-FiveYearData.csv`, but it hasn’t recorded these changes as a commit yet. To get it to do that, we need to run one more command:
+So far the changes are "untracked" with git.  Now we need to tell git to keep track of the changes we have made - in other words, it's time for the first add and commit!
 
-> 8. `git commit -m "Adding gapminder_analysis.R and gapminder-FiveYearData.csv files to repository"`  
-
-When we run `git commit`, Git takes everything we have told it to save by using `git add` and stores a copy permanently inside the special **.git** directory. This permanent copy is called a commit (or revision) and its short identifier is `f22b25e` (Your commit will have another unique identifier.)
-
-We use the `-m` flag (for “message”) to record a short, descriptive, and specific comment that will help us remember later on what we did and why. If we just run `git commit` without the `-m` option, Git will launch nano (or whatever other editor we configured as core.editor) so that we can write a longer message.
-
-Good commit messages start with a brief (<50 characters) summary of changes made in the commit. If you want to go into more detail, add a blank line between the summary line and your additional notes.
-
-![](Figures/xkcd_gitcommit.png)
-
-If we run git status now:
-
-> 9. `git status`: Now, git tells us everything is up to date. If we want to know what we’ve done recently, we can ask git to show us the project’s history using `git log`  
-
-> 10. `git log`  lists all commits made to a repository in reverse chronological order. The listing for each commit includes the commit’s full identifier (which starts with the same characters as the short identifier printed by the git commit command earlier), the commit’s author, when it was created, and the log message Git was given when the commit was created.
-
-
-**Where Are My Changes?**  If we run `ls` at this point, we will still see just one file called `gapminder_analysis.R`. That’s because git saves information about files’ history in the special `.git` directory mentioned earlier so that our filesystem doesn’t become cluttered (and so that we can’t accidentally edit or delete an old version).
-
-Now let's adds more information to the file. (Again, we’ll edit with nano and then cat the file to show its contents; you may use a different editor, and don’t need to cat.)  
-
-> 11. Make a commented header to the file with some identifying information.  For example, `# Date: January 18th, 2017.`  Or comment some of the code.  
-> 12. Save the changes to `gapminder_analysis.R`
-> 13. `cat gapminder_analysis.R` to see the changes.  
-> 14. Now run `git status`.  
-
-The last line is the key phrase: `“no changes added to commit”.` We have changed this file, but we haven’t told git we will want to save those changes (which we do with git add) nor have we saved them (which we do with git commit). So let’s do that now. It is good practice to always review our changes before saving them. We do this using `git diff`. This shows us the differences between the current state of the file and the most recently saved version:
-
-> 15. `git diff`  
-
-The output is cryptic because it is actually a series of commands for tools like editors and patch telling them how to reconstruct one file given the other. If we break it down into pieces:
-
-1. The first line tells us that git is producing output similar to the Unix diff command comparing the old and new versions of the file.  
-
-2. The second line tells exactly which versions of the file git is comparing; df0654a and 315bf3a are unique computer-generated labels for those versions.  
-
-3. The third and fourth lines once again show the name of the file being changed.  
-
-4. The remaining lines are the most interesting, they show us the actual differences and the lines on which they occur. In particular, the + markers in the first column show where we have added lines.  
-
-After reviewing our change, it’s time to commit it:  
-
-> 16. `git commit -m "Added comment on ______"`  
-> 17. `git status`  
-
-Whoops: Git won’t commit because we didn’t use `git add first`. Let’s fix that:
-
-> 18. `git add gapminder_analysis.R`  
-> 19. `git commit -m "Added comment on ______"`  
-> 20. `git status`  
+> 5. `git add README.md`  
 
 Git insists that we add files to the set we want to commit before actually committing anything because **we may not want to commit everything at once**. For example, suppose we’re adding a few citations to our supervisor’s work to our thesis. We might want to commit those additions, and the corresponding addition to the bibliography, but not commit the work we’re doing on the conclusion (which we haven’t finished yet).
 
@@ -448,66 +360,68 @@ If you don’t have anything staged when you type `git commit`, git will prompt 
 
 Let’s watch as our changes to a file move from our editor to the staging area and into long-term storage.
 
-> 21.  Add `ggplot(data = gapminder, aes(x = year, y = lifeExp, color = continent))` `+`
-  `geom_point()` for a plot with year on the x-axis and life expectantcy on the y axis in the `gapminder_analysis.R` file.  
-> 22. `git diff`
 
-So far, so good: we’ve added one line to the end of the file (shown with a + in the first column). Now let’s put that change in the staging area and see what `git diff` reports:
 
-> 23. `git add gapminder_analysis.R`  
-> 24. `git diff`  
+> 6. `git status`  
 
-There is no output: as far as git can tell, there’s no difference between what it’s been asked to save permanently and what’s currently in the directory. However, if we do this:
+Git now knows that it’s supposed to keep track of `README.md`, but it hasn’t recorded these changes as a commit yet. To get it to do that, we need to run one more command:
 
-> 25. `git diff --staged`
+> 7. `git commit -m "Created README.md to keep track of documentation of this repository."`  
 
-it shows us the difference between the last committed change and what’s in the staging area. Let’s save our changes:
+When we run `git commit`, Git takes everything we have told it to save by using `git add` and stores a copy permanently inside the special **.git** directory. This permanent copy is called a commit (or revision) and its short identifier is `f22b25e` (Your commit will have another unique identifier.)
 
-> 26. `git commit -m "Added code to plot gapminder data with x = year and y = life expectantcy."`  
+We use the `-m` flag (for “message”) to record a short, descriptive, and specific comment that will help us remember later on what we did and why. If we just run `git commit` without the `-m` option, Git will launch nano (or whatever other editor we configured as core.editor) so that we can write a longer message.
 
-Check the status: 
+Good commit messages start with a brief (<50 characters) summary of changes made in the commit. If you want to go into more detail, add a blank line between the summary line and your additional notes.
 
-> 27. `git status`
+![](Figures/xkcd_gitcommit.png)
 
-and look at the history of what we’ve done so far:  
+If we run git status now:
 
-> 28. `git log`  
+> 8. `git status`.  Now, git tells us everything is up to date.  
+> 9. Open the readme and write down the purpose of this repository  
+> 10. `git status`
+
+> 11. `git diff`:  This shows us the differences between the current state of the file and the most recently saved version:
+
+The output is cryptic because it is actually a series of commands for tools like editors and patch telling them how to reconstruct one file given the other. If we break it down into pieces:
+
+1. The first line tells us that git is producing output similar to the Unix diff command comparing the old and new versions of the file.  
+
+2. The second line tells exactly which versions of the file git is comparing; df0654a and 315bf3a are unique computer-generated labels for those versions.  
+
+3. The third and fourth lines once again show the name of the file being changed.  
+
+4. The remaining lines are the most interesting, they show us the actual differences and the lines on which they occur. In particular, the + markers in the first column show where we have added lines.  
+
+After reviewing our change, it’s time to commit it:  
+
+> 12. `git add`  
+> 13. `git status`  
+> 14. `git commit -m "Added purpose of this repo to readme file"`  
+> 15. `git status`  
+
+> 16. If we want to know what we’ve done recently, we can ask git to show us the project’s history using `git log``  
+
+`git log`  lists all commits made to a repository in reverse chronological order. The listing for each commit includes the commit’s full identifier (which starts with the same characters as the short identifier printed by the git commit command earlier), the commit’s author, when it was created, and the log message Git was given when the commit was created.
+
+
+> 17.  Make another change and go through: 
+
+a. `git add`  
+b. `git status`  
+c. `git commit -m "your message"`  
+d. `git status`  
+
+
+
 
 To recap, when we want to add changes to our repository, we first need to add the changed files to the staging area (git add) and then commit the staged changes to the repository (git commit):  
 
 ![](Figures/git_workflow.png)
 
-
-> **Challege Question 1:  Choosing a Commit Message**  
-Which of the following commit messages would be most appropriate for the last commit made to mars.txt?
-
-```
-1. “Changes”
-2. “Added line ‘But the Mummy will appreciate the lack of humidity’ to mars.txt”
-3. “Discuss effects of Mars’ climate on the Mummy”
-```
-
-
-> **Challege Question 2:  Committing Changes to Git**  
-> Which command(s) below would save the changes of myfile.txt to my local git repository?
-
-```
-1.  $ git commit -m "my recent changes"
-2.  $ git init myfile.txt
-    $ git commit -m "my recent changes"
-
-3.  $ git add myfile.txt
-    $ git commit -m "my recent changes"
-
-4.  $ git commit -m myfile.txt "my recent changes"
-```
-
-> **Challenge 3:  Create a project description**  
-> Create a new file called README.txt. Write a three-line description of the `swc_workshop` repository, commit your changes, then:
-
-> - modify one line
-> - add a line
-> - and display the differences between its updated state and its original state.
+> 18. `git remote -v`  
+> 19. Does anything happen?
 
 
 
@@ -527,7 +441,7 @@ Systems like Git allow us to move work between any two repositories. In practice
 Let’s start by sharing the changes we’ve made to our current project with the world.  
 
 > 1. Log in to GitHub.  
-> 2. Click on "Repositories", and then click on the ![](Figures/new.png) icon in the top right corner to create a new repository called `swc_workshop` (**Note**: This name should be the same exact name as the folder on your computer):  
+> 2. Click on "Repositories", and then click on the ![](Figures/new.png) icon in the top right corner to create a new repository called `earth_523` (**Note**: This name should be the same exact name as the folder on your computer):  
 
 ![](Figures/remote_repo.png)
 
@@ -537,12 +451,12 @@ As soon as the repository is created, GitHub displays a page with a URL and some
 
 This effectively does the following on GitHub’s servers:
 
-`mkdir swc_workshop`  
-`cd swc_workshop`  
+`mkdir earth_523`  
+`cd earth_523`  
 `git init`
 
 
-Our local repository still contains our earlier work on `gapminder_analysis.R`, but the remote repository on GitHub doesn’t contain any files yet:
+Our local repository still contains our earlier work on `README.md`, but the remote repository on GitHub doesn’t contain any files yet:
 
 ![](Figures/local_vs_remote.png)
 
@@ -563,7 +477,7 @@ The next step is to connect the two repositories. We do this by making the GitHu
 
 
 > 5. Copy that **HTTPS** URL from the browser, go into the local `SWC_R` repository.  
-> 6. Run this command: `git remote add origin https://github.com/marschmi/swc_workshop.git`  
+> 6. Run this command: `git remote add origin https://github.com/marschmi/earth_523.git`  
 
 Make sure to use the URL for your repository rather than marschmi’s.
 
@@ -575,7 +489,11 @@ The name `origin` is a local nickname for your remote repository: we could use s
 
 Once the nickname `origin` is set up, this command will push the changes from our local repository to the repository on GitHub:
 
-> 8. `git push origin master`
+> 8. `git push -u origin master`  
+
+- `origin`: a remote name of the repo  
+- `master`: a branch name
+
 
 ***  
 
@@ -611,32 +529,8 @@ We can pull changes from the remote repository to the local one as well:
 Pulling has no effect in this case because the two repositories are already synchronized. If someone else had pushed some changes to the repository on GitHub, though, this command would download them to our local repository.
 
 
-> **Challenge 1:  Remote vs Local Repositories**  
-> 1. Define **remote** repository.  
-> 2. Define **local** repository.  
-> 3. What is the difference between remote and local repositories*?  
 
-
-> **Challenge 2:  `git push` vs `git pull`**  
-> 1. What happened when you performed `git push`?  
-> 2. What happened when you ran `git pull`?  
-> 3. How are `git push` and `git pull` different?
-
-> **Challenge 3:  Github Timestamp**  
-> Create a repository on GitHub, clone it, add a file, push those changes to GitHub, and then look at the <a href="http://swcarpentry.github.io//git-novice/reference.html#timestamp" target="_blank">timestamp</a> of the change on GitHub. How does GitHub record times, and why?
-
-
-# Exploring History in Git
-
-In this lesson we will navigate to <a href="http://swcarpentry.github.io/git-novice/05-history/" target="_blank">http://swcarpentry.github.io/git-novice/05-history/</a>  
-
-
-
-# Remember 2 things:  
-> 1. **Version control is better than mailing files back and forth!  (It is also better than dropbox.)**  
-> 2. **Do you want to be your (or advisor's/collaborator's) friend in 6 months?  A year? 2 years?**
-
-# Key Words
+# Git:  Key Words
 A helpful resource describing version control with git basics from Software Carpentry <a href="http://swcarpentry.github.io//git-novice/reference.html#version-control" target="_blank">can be found here.</a>  
 
 - **Version Control**  
@@ -663,8 +557,224 @@ When adding a local to a new remote repo:
 
 
 
+# RMarkdown within RStudio  
+
+# RMarkdown 
+    
+    
+## What is R Markdown?   
+* RMarkdown is a variant of Markdown that has embedded R code chunks to be used with `knitr` to make it easy to create reproducible web-based reports.  
+      + **Markdown:**  A system for writing simple, readable text that is easily converted to html. 
+          + Allows you to write using an easy-to-read, easy-to-write plain text format.              
+*  Rmd -> md -> html (docx, pdf)  
+*  Can include both text and code to execute  
+      
+    
+## Why R Markdown?
+A convenient tool for reproducible and dynamic reports with R!       
+
+- Execute code with `knitr`.   
+- Easy to learn syntax.  
+- Include LaTeX equations.  
+- Don't need to worry about page breaks or figure placement.  
+- Consolidate your code and write up into a single file:  
+    + Slideshows, pdfs, html documents, word files  
+- It's **so easy** to use with version control with Git!   
+
+## Simple Workflow
+
+![](Figures/rmd_workflow.jpeg)
 
 
+### How to Open an Rmd File
+![](Figures/new.jpeg)  
+
+![](Figures/newRMD.jpeg)
+
+
+
+#### Choose Output
+**YAML Header:**  A set of key value pairs at the start of your file.  Begin and end the header with a line of three dashes (- - -)
+
+***R Studio template writes the YAML header for you***  
+
+output: html_document  
+output: pdf_document  
+output: word_document  
+output: beamer_presentation (beamer slideshow - pdf)  
+output: ioslides_presentation (ioslides presentation - html)  
+
+**For example:**  Here's the YAML header for this webpage with a table of contents.
+```
+---
+title: "Introductory Version Control with Git"
+subtitle: "Earth 523 - Metagenomics"
+author: "Marian L. Schmidt, @micro_marian, marschmi@umich.edu"
+date: "February 2nd, 2017"
+output:
+  html_document:
+    code_folding: show
+    highlight: haddock
+    keep_md: yes
+    theme: united
+    toc: yes
+    toc_float:
+      collapsed: no
+      smooth_scroll: yes
+      toc_depth: 2
+---
+```
+
+#### Markdown basics 
+Markdown is a simple formatting language that is easy to use
+
+- Create lists with `*` or `+` sign   
+      + like this
+      + and this  
+      + **A very important note:**  The end of a line is marked by two spaces and an enter!!  Otherwise your list will look ugly like the one below: 
+- Use one or two asterisk marks to provide emphasis such as `*`*italics*`*` and `**`**bold**`**`.  Can even include tables:    
+
+First Header  | Second Header
+------------- | -------------
+Content Cell  | Content Cell
+Content Cell  | Content Cell
+
+
+## Helpful Cheatsheets  
+
+Go to `Help` --> "Cheatsheets"  
+
+
+# R Code Chunks 
+
+```
+Code blocks display with fixed-width font
+```
+
+
+```r
+#quick summary
+library(ggplot2)
+min(diamonds$price)
+```
+
+```
+## [1] 326
+```
+
+```r
+mean(diamonds$price)
+```
+
+```
+## [1] 3932.8
+```
+
+```r
+max(diamonds$price)
+```
+
+```
+## [1] 18823
+```
+
+
+#### More R Code Chunks 
+![](Figures/chunk_example.jpeg)
+
+
++ You can name the code chunk.  
+
++ echo = TRUE:  The code **will** be displayed.   
+
++ eval = TRUE: Yes, execute the code.
+
+#### R Code Chunk Arguments
+![](Figures/knitr_arguments.jpeg)
+
+#### R Code Chunks:  Displaying Plots 
+![](Figures/figure.jpeg)
+
+<img src="earth523_Feb02_files/figure-html/figure-1.png" style="display: block; margin: auto;" />
+
+
+### Global Chunk Options
+
+You may want to use the same set of chunk options throughout a document and you don't want to retype those options in every chunk.  
+
+**Global chunk options are for you!**
+
+
+
+![](Figures/global.jpeg)
+
+
+
+### Inline R Code  
+
+You can evaluate expressions inline by enclosing the expression within a single back-tick qualified with `r`.  
+
+Inline code is underappreciated!  
+
+Last night, I saw 7 shooting stars!  
+
+
+![](Figures/shootingstars.jpeg)
+
+
+
+### Rendering document
+1.  Run `rmarkdown::render("<filepath>")`  
+2.  Click the very cute **knit HTML** button at the top of the RStudio scripts pane  
+
+When you render, R will:  
+
+- Execute each embedded code chunk and insert the results into your report.  
+
+- Build a new version of your report in the output file type.  
+
+- Open a preview of the output file in the viewer pane.  
+
+-  Save the output file in your working directory.  
+
+*** 
+
+
+
+
+## Resources  
+### Resources for Reproducible Research  
+- Vince Buffalo's <a href="http://www.amazon.com/Bioinformatics-Data-Skills-Reproducible-Research/dp/1449367372" target="_blank">Bioinformatics Data Skills</a> book and it's helpful <a href="https://github.com/vsbuffalo/bds-files" target="_blank">github page.</a> 
+    + Main source for this presentation.
+- A course by Karl Broman at the University of Wisconsin-Madison on <a href="http://kbroman.org/Tools4RR/" target="_blank">Reproducible Research.</a>  
+- Reproducible-Science-Curriculum <a href="https://github.com/Reproducible-Science-Curriculum/rr-init" target="_blank">Github repo for Reproducible Research Project Initialization</a>  
+- <a href="http://ropensci.github.io/reproducibility-guide/" target="_blank">ROpenSci Reproducibility Research</a> guidelines  
+- Publications:  
+    + <a href="http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745" target="_blank">Best Practices for Scientific Computing</a> by Wilson et al., 2014.  
+    + <a href="http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000424" target="_blank">A Quick Guide to Organizing Computational Biology Projects</a> by Noble, 2009.  
+    + <a href="http://www.sciencemag.org/content/334/6060/1226.abstract" target="_blank">Reproducible Research in Computational Science</a> by Peng, 2011.  
+- <a href="https://www.stat.wisc.edu/reproducible" target="_blank">Statistics Department Resources from the University of Wisconsin</a>  
+- "Baby steps for the open-curious" from <a href="https://practicaldatamanagement.wordpress.com/2014/10/23/baby-steps-for-the-open-curious/" target="_blank">Christie Bahlai</a>  
+
+
+### Resources for Rmarkdown, RStudio and R  
+- Yihui Xie's <a href="http://www.amazon.com/Dynamic-Documents-knitr-Chapman-Series/dp/1482203537" target="_blank">Dynamic Documents with R and Knitr</a> and it's <a href="https://github.com/yihui/knitr-book/" target="_blank">github page.</a>  
+- Resources from Jennifer Bryan's  <a href="http://stat545-ubc.github.io/git00_index.html" target="_blank">Stats 545</a>.  
+- <a href="https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf" target="_blank">RMarkdown Quick Reference Guide</a>  
+- Christopher Gandrud's <a href="http://www.amazon.com/Reproducible-Research-Studio-Chapman-Series/dp/1466572841" target="_blank">Reproducible Research with R and RStudio</a> and it's <a href="https://github.com/christophergandrud/Rep-Res-Book" target="_blank">github page</a>  
+- <a href="http://rmarkdown.rstudio.com/" target="_blank">RStudio RMarkdown Documentation</a>  
+- <a href="http://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf" target="_blank">Rmd Cheatsheet</a>
+- <a href="http://cran.r-project.org/web/packages/knitr/vignettes/knitr-refcard.pdf" target="_blank">Knitr Reference Card</a>
+- <a href="http://www.cookbook-r.com/Graphs/" target="_blank">R Cookbook for ggplot</a>
+  
+  
+### Other Resources  
+- <a href="https://software-carpentry.org/" target="_blank">Software Carpentry Foundation</a>  
+- <a href="http://datacarpentry.github.io/" target="_blank">Data Carpentry</a>  
+- <a href="http://www.ted.com/talks/amy_cuddy_your_body_language_shapes_who_you_are?language=en" target="_blank">Power-Posing</a>
+
+
+***
 
 
 
