@@ -1,6 +1,6 @@
 # February 2nd, 2017: Earth 523 (Megagenomics)
 
-Please go to [http://rpubs.com/marschmi/earth523](http://rpubs.com/marschmi/earth523)
+Please go to [https://rpubs.com/marschmi/ear523_Feb02](https://rpubs.com/marschmi/ear523_Feb02)
 
 Please see the **earth523_Feb02.Rmd** for the presentation/tutorial.
 

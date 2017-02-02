@@ -765,13 +765,13 @@ When you render, R will:
 - <a href="http://rmarkdown.rstudio.com/" target="_blank">RStudio RMarkdown Documentation</a>  
 - <a href="http://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf" target="_blank">Rmd Cheatsheet</a>
 - <a href="http://cran.r-project.org/web/packages/knitr/vignettes/knitr-refcard.pdf" target="_blank">Knitr Reference Card</a>
-- <a href="http://www.cookbook-r.com/Graphs/" target="_blank">R Cookbook for ggplot</a>
+- <a href="http://www.cookbook-r.com/Graphs/" target="_blank">R Cookbook for ggplot</a>  
+- A <a href="http://rpubs.com/marschmi/RMarkdown" target="_blank">tutorial on RMarkdown</a>  that I wrote.
   
   
 ### Other Resources  
 - <a href="https://software-carpentry.org/" target="_blank">Software Carpentry Foundation</a>  
 - <a href="http://datacarpentry.github.io/" target="_blank">Data Carpentry</a>  
-- <a href="http://www.ted.com/talks/amy_cuddy_your_body_language_shapes_who_you_are?language=en" target="_blank">Power-Posing</a>
 
 
 ***
