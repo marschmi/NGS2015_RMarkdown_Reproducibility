@@ -1,5 +1,5 @@
 ---
-title: "Introductory Version Control with Git"
+title: "Reproducible Research Using R and Git"
 subtitle: "Earth 523 - Metagenomics"
 author: "Marian L. Schmidt, @micro_marian, marschmi@umich.edu"
 date: "February 2nd, 2017"
